@@ -1,0 +1,11 @@
+<div class="container">
+  <h2>Página Inicial de Cliente</h2>
+  <button type="button" class="btn btn-primary" (click)="irParaPedido()">
+    Fazer Pedido
+  </button>
+  <ul>
+    <li *ngFor="let pedido of pedidosEmAberto">
+      {{ pedido.numeroPedido }} - {{ pedido.descricao }}
+    </li>
+  </ul>
+</div>
