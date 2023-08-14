@@ -8,10 +8,9 @@
             <p>Usuario/Senha incorreto!</p>
         </div>
     </div>
-    
-    <div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;  margin-top: -33%;">
+    <div class="d-flex justify-content-center align-items-center bg-secondary" style="min-height: 100vh;  margin-top: -33%;">
         
-        <form (ngSubmit)="login()" #loginForm="ngForm" class="border p-4">
+        <form (ngSubmit)="login()" #loginForm="ngForm" class="border p-4 bg-light">
             <div class="mb-4">
                 <label for="usuario">E-mail: </label>
                 <input type="text" id="usuario" name="usuario" class="form-control rounded border-primary" placeholder="Digite o seu e-mail" required [(ngModel)]="usuario" /><br>
@@ -25,7 +24,7 @@
                     <input type="submit" class="btn btn-dark" btn-info value="Entrar" />
                 </div>
                 <div class="btn btn pl-4 ">
-                    <input type="button" class="btn btn-secondary" value="Cadastrar" />
+                    <a routerLink="/autocadastro"><input type="button" class="btn btn-secondary" value="Cadastrar" /></a>
                 </div>
             </div>
         </form>

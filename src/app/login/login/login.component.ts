@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,7 @@ export class LoginComponent implements OnInit {
   senha : string = '';
   loginIncorreto : boolean = false;
 
-  constructor(){}
+  constructor(private router: Router){}
 
   ngOnInit(): void {
   
@@ -18,7 +19,7 @@ export class LoginComponent implements OnInit {
 }
 login(){
     if(this.usuario === "user@ufpr.br" && this.senha === "1234"){
-
+      this.router.navigate(['/cliente']);
     }
     else{
       this.loginIncorreto = true;
