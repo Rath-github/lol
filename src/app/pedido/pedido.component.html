@@ -1,0 +1,42 @@
+<div class="container">
+  <h2>Fazer Pedido</h2>
+  <form #pedidoForm="ngForm">
+    <div class="form-group">
+      <label for="roupas">Roupas (separadas por vírgula):</label>
+      <input
+        type="text"
+        class="form-control"
+        id="roupas"
+        name="roupas"
+        required
+        [(ngModel)]="roupas"
+      />
+    </div>
+    <button type="button" class="btn btn-primary" (click)="fazerPedido()">
+      Calcular Orçamento
+    </button>
+  </form>
+
+  <div *ngIf="orcamento > 0">
+    <h3>Orçamento:</h3>
+    <p>Valor: R$ {{ orcamento }}, Prazo: {{ prazo }} dias</p>
+
+    <div *ngIf="!pedidoAprovado && !pedidoRejeitado">
+      <button type="button" class="btn btn-success" (click)="aprovarPedido()">
+        Aprovar Pedido
+      </button>
+      <button type="button" class="btn btn-danger" (click)="rejeitarPedido()">
+        Rejeitar Pedido
+      </button>
+    </div>
+  </div>
+
+  <div *ngIf="pedidoAprovado">
+    <h3>Pedido Aprovado</h3>
+    <p>Número de Pedido: {{ numeroPedido }}</p>
+  </div>
+
+  <div *ngIf="pedidoRejeitado">
+    <h3>Pedido Rejeitado</h3>
+  </div>
+</div>
