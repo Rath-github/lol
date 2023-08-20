@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { PedidoComponent } from '../pedido/pedido.component';
 
 @Component({
   selector: 'app-consultar-pedido',
@@ -24,6 +23,7 @@ export class ConsultarPedidoComponent {
   
   pedidoNum : string = '';
   exibirPedido : boolean = false;
+  naoEncontrado : boolean = false;
 
   buscarPedido(){
     const pedidoEncontrado = this.pedidos.find(pedido => pedido.numeroPedido === this.pedidoNum);
@@ -35,12 +35,17 @@ export class ConsultarPedidoComponent {
       this.estado = pedidoEncontrado.estado;
       this.numeroPedido = pedidoEncontrado.numeroPedido;
 
+      this.naoEncontrado = false;
       this.exibirPedido = true;
       
-console.log(this.roupas);
-  } else {
-   //pedido nao encontrado
-  }
+
+    } 
+    else {
+      //pedido nao encontrado
+      this.exibirPedido = false;
+      this.naoEncontrado = true;
+
+     }
     }
 
   }
