@@ -8,4 +8,11 @@
       {{ pedido.numeroPedido }} - {{ pedido.descricao }}
     </li>
   </ul>
+
+  <button (click)="listarPedidos()">Mostrar Pedidos</button>
+  <div *ngIf="exibirListarPedido">
+  
+  </div>
+
+
 </div>
