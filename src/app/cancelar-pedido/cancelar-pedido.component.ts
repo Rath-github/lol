@@ -14,22 +14,10 @@ export class CancelarPedidoComponent {
 
   naoEncontrado: boolean = false;
 
-<<<<<<< HEAD
+
  
   cancelarPedido() {
   
     this.naoEncontrado = true;
   }
 }
-=======
-  // Função para cancelar o pedido
-  cancelarPedido() {
-    // Implemente a lógica para cancelar o pedido aqui
-    // Por exemplo, você pode remover o pedido da lista de pedidos ou atualizar o estado do pedido
-    // Certifique-se de implementar essa lógica de acordo com os requisitos do seu aplicativo
-    
-    // Exibir a mensagem de pedido cancelado
-    this.naoEncontrado = true;
-  }
-}
->>>>>>> 41b4e087f084457ba5258b1f29174c7653508845
