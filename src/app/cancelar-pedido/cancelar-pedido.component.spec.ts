@@ -18,4 +18,8 @@ describe('CancelarPedidoComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+<<<<<<< HEAD
 });
+=======
+});
+>>>>>>> 41b4e087f084457ba5258b1f29174c7653508845
