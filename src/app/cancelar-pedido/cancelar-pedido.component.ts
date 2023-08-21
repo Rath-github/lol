@@ -13,11 +13,20 @@ export class CancelarPedidoComponent {
   ];
 
   naoEncontrado: boolean = false;
+  pedidoCancelado: boolean = false;
 
-
- 
   cancelarPedido() {
-  
-    this.naoEncontrado = true;
+    const numeroPedido = (<HTMLInputElement>document.getElementById('numeroPedido')).value;
+    const pedidoIndex = this.pedidos.findIndex(pedido => pedido.numeroPedido === numeroPedido);
+
+    if (pedidoIndex !== -1) {
+      this.pedidos[pedidoIndex].estado = 'CANCELADO';
+      this.pedidos[pedidoIndex].prazo = 0;
+      this.naoEncontrado = false;
+      this.pedidoCancelado = true;
+    } else {
+      this.naoEncontrado = true;
+      this.pedidoCancelado = false;
+    }
   }
 }

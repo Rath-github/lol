@@ -37,12 +37,16 @@
         <button class="btn btn-danger ml-2" (click)="cancelarPedido()">Cancelar Pedido</button>
     </div>
 
-
+    <div class="d-flex justify-content-center align-items-center">
+      <div class="alert alert-success col-md-6 d-flex justify-content-center align-items-center" role="alert" *ngIf="pedidoCancelado">
+          <p>Pedido Cancelado com Sucesso!</p>
+      </div>
+  </div>
 
     <div class="d-flex justify-content-center align-items-center">
         <div class="alert alert-danger col-md-6 d-flex justify-content-center align-items-center" role="alert" *ngIf="naoEncontrado">
             <p>Pedido não encontrado!</p>
         </div>
     </div>
-
+   
 </div>
