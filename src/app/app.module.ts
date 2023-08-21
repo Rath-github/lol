@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 <<<<<<< HEAD
 import { ConfirmarPagamentoComponent } from './confirmar-pagamento/confirmar-pagamento.component';
+import { FuncionarioComponent } from './funcionario/funcionario.component';
 =======
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -15,7 +16,8 @@ import { FormsModule } from '@angular/forms';
   declarations: [
     AppComponent,
 <<<<<<< HEAD
-    ConfirmarPagamentoComponent
+    ConfirmarPagamentoComponent,
+FuncionarioComponent
 =======
     LoginComponent
 >>>>>>> 2c53b7b920fc8b2ab22c897c2b53f569b1e0716a
