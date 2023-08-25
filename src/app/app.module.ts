@@ -6,9 +6,14 @@ import { ClienteComponent } from './cliente/cliente.component';
 import { PedidoComponent } from './pedido/pedido.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
+import { AutocadastroComponent } from './autocadastro/autocadastro.component';
+
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { ConsultarPedidoComponent } from './consultar-pedido/consultar-pedido.component';
+import { ConfirmacaoLavagemComponent } from './confirmacao-lavagem/confirmacao-lavagem.component';
+
 
 @NgModule({
   declarations: [
@@ -17,7 +22,9 @@ import { ConsultarPedidoComponent } from './consultar-pedido/consultar-pedido.co
     ClienteComponent,
     PedidoComponent,
     ConsultarPedidoComponent,
+    ConfirmacaoLavagemComponent,
     
+
   ],
   imports: [
     BrowserModule,

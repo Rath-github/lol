@@ -1,0 +1,15 @@
+<div id="container">
+    <div *ngIf="!botaoEstado" >
+        <button (click)="confirmarLavagem(pedidoNum)" class="btn btn-success">Confirmar Lavagem</button>
+    </div>
+    
+
+    <div *ngIf="botaoEstado">
+        <p>Lavagem Concluida!
+        <button (click)="cancelar(pedidoNum)"  class="btn btn-secondary">Desfazer</button></p>
+    </div>
+   
+
+</div>
+
+
