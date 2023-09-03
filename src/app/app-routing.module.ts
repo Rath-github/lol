@@ -8,6 +8,8 @@ import { PedidoComponent } from './pedido/pedido.component';
 import { ConsultarPedidoComponent } from './consultar-pedido/consultar-pedido.component';
 import { AutocadastroComponent } from './autocadastro/autocadastro.component';
 import { ConfirmacaoLavagemComponent } from './confirmacao-lavagem/confirmacao-lavagem.component';
+import { RoupasComponent } from './roupas/roupas.component';
+
 
 const routes: Routes = [
    { path: 'login', component: LoginComponent },
@@ -16,6 +18,7 @@ const routes: Routes = [
    { path: 'consultar-pedido', component: ConsultarPedidoComponent },
    { path: 'autocadastro', component: AutocadastroComponent},
    { path: 'confirmacao-lavagem', component: ConfirmacaoLavagemComponent},
+   { path: 'roupas', component: RoupasComponent},
    { path: '', redirectTo: '/login', pathMatch: 'full' },
   
   ];

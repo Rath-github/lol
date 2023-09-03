@@ -13,6 +13,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { ConsultarPedidoComponent } from './consultar-pedido/consultar-pedido.component';
 import { ConfirmacaoLavagemComponent } from './confirmacao-lavagem/confirmacao-lavagem.component';
+import { RoupasComponent } from './roupas/roupas.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { ConfirmacaoLavagemComponent } from './confirmacao-lavagem/confirmacao-l
     PedidoComponent,
     ConsultarPedidoComponent,
     ConfirmacaoLavagemComponent,
+    RoupasComponent,
     
 
   ],
