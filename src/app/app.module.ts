@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { CancelarPedidoComponent } from './cancelar-pedido/cancelar-pedido.component';
 import { FinalizarPedidoComponent } from './finalizacao-pedido/finalizacao-pedido.component';
+import { RelatorioClientesFieisComponent } from './relatorio-clientes-fieis/relatorio-clientes-fieis.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     CancelarPedidoComponent,
-    FinalizarPedidoComponent
+    FinalizarPedidoComponent,
+    RelatorioClientesFieisComponent
   ],
   imports: [
     BrowserModule,
