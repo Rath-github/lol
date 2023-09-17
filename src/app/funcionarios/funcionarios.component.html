@@ -1,0 +1,21 @@
+<div>
+  <h2>Manutenção de Funcionários</h2>
+  <ul>
+    <li *ngFor="let funcionario of funcionarios; let i = index">
+      {{ funcionario.nome }} - E-mail: {{ funcionario.email }} - Data de
+      Nascimento: {{ funcionario.dataNascimento }}
+      <button (click)="removerFuncionario(i)">Remover</button>
+    </li>
+  </ul>
+  <div>
+    <h3>Adicionar Novo Funcionário</h3>
+    <input [(ngModel)]="novoFuncionario.nome" placeholder="Nome" />
+    <input [(ngModel)]="novoFuncionario.email" placeholder="E-mail" />
+    <input
+      [(ngModel)]="novoFuncionario.dataNascimento"
+      placeholder="Data de Nascimento"
+    />
+    <input [(ngModel)]="novoFuncionario.senha" placeholder="Senha" />
+    <button (click)="adicionarFuncionario()">Adicionar</button>
+  </div>
+</div>

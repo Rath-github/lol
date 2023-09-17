@@ -1,0 +1,96 @@
+<div class="container">
+  <h2>Página Inicial de Funcionário</h2>
+  <div class="form-group">
+    <label for="filtroPedido">Filtrar por:</label>
+    <select
+      class="form-control"
+      id="filtroPedido"
+      name="filtroPedido"
+      [(ngModel)]="filtroSelecionado"
+    >
+      <option value="todos">Todos os Pedidos</option>
+      <option value="hoje">Pedidos de Hoje</option>
+      <option value="periodo">Por Período de Datas</option>
+    </select>
+  </div>
+
+  <div *ngIf="filtroSelecionado === 'periodo'" class="form-group">
+    <label for="dataInicio">Data de Início:</label>
+    <input
+      type="date"
+      class="form-control"
+      id="dataInicio"
+      name="dataInicio"
+      [(ngModel)]="dataInicio"
+    />
+  </div>
+
+  <div *ngIf="filtroSelecionado === 'periodo'" class="form-group">
+    <label for="dataFim">Data de Fim:</label>
+    <input
+      type="date"
+      class="form-control"
+      id="dataFim"
+      name="dataFim"
+      [(ngModel)]="dataFim"
+    />
+  </div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Número do Pedido</th>
+        <th>Estado</th>
+        <th>Data/Hora</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pedido of pedidosFiltrados">
+        <td>{{ pedido.numero }}</td>
+        <td>
+          <span
+            [ngClass]="{
+              'text-warning': pedido.estado === 'EM ABERTO',
+              'text-danger':
+                pedido.estado === 'REJEITADO' || pedido.estado === 'CANCELADO',
+              'text-muted': pedido.estado === 'RECOLHIDO',
+              'text-primary': pedido.estado === 'AGUARDANDO PAGAMENTO',
+              'text-orange': pedido.estado === 'PAGO',
+              'text-success': pedido.estado === 'FINALIZADO'
+            }"
+          >
+            {{ pedido.estado }}
+          </span>
+        </td>
+        <td>{{ pedido.data | date : "dd/MM/yyyy HH:mm" }}</td>
+        <td>
+          <ng-container *ngIf="pedido.estado === 'EM ABERTO'">
+            <button
+              class="btn btn-success"
+              (click)="registrarRecolhimento(pedido.numero)"
+            >
+              Recolher
+            </button>
+          </ng-container>
+          <ng-container *ngIf="pedido.estado === 'RECOLHIDO'">
+            <button
+              class="btn btn-primary"
+              (click)="confirmarLavagem(pedido.numero)"
+            >
+              Confirmar Lavagem
+            </button>
+          </ng-container>
+          <ng-container *ngIf="pedido.estado === 'PAGO'">
+            <button
+              class="btn btn-success"
+              (click)="finalizarPedido(pedido.numero)"
+            >
+              Finalizar
+            </button>
+          </ng-container>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
