@@ -1,11 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AutocadastroComponent } from './autocadastro/autocadastro.component'; // Substitua pelo caminho correto
-  const routes: Routes = [
-    // Outras rotas
-    { path: 'autocadastro', component: AutocadastroComponent }, // Adicione esta linha
-  ];
-  
+import { CancelarPedidoComponent } from './cancelar-pedido/cancelar-pedido.component';
+import { FinalizarPedidoComponent } from './finalizacao-pedido/finalizacao-pedido.component';
+import { RelatorioClientesFieisComponent } from './relatorio-clientes-fieis/relatorio-clientes-fieis.component';
+
+const routes: Routes = [
+  { path: 'cancelar-pedido', component: CancelarPedidoComponent },
+  { path: 'finalizar-pedido', component: FinalizarPedidoComponent },
+  {path: 'relatorio-clientes-fieis', component: RelatorioClientesFieisComponent}
+];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
