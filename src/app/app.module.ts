@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module'; // Verifique se este import está correto
 
+
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './login/login.component';
@@ -19,6 +20,12 @@ import { FooterComponent } from './footer/footer.component';
 import { PecasRoupasComponent } from './pecas-roupas/pecas-roupas.component';
 import { FuncionariosComponent } from './funcionarios/funcionarios.component';
 import { RelatorioReceitasComponent } from './relatorio-receitas/relatorio-receitas.component';
+
+import { AutocadastroComponent } from './autocadastro/autocadastro.component';
+
+import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -45,5 +52,6 @@ import { RelatorioReceitasComponent } from './relatorio-receitas/relatorio-recei
   ],
   providers: [],
   bootstrap: [AppComponent],
+
 })
 export class AppModule {}

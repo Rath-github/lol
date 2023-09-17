@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AutocadastroComponent } from './autocadastro/autocadastro.component';
 import { LoginComponent } from './login/login.component';
 import { ClienteComponent } from './cliente/cliente.component';
 import { PedidoComponent } from './pedido/pedido.component';
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'pecas-roupas', component: PecasRoupasComponent },
   { path: 'Funcionarios', component: FuncionariosComponent },
   { path: 'relatorio-receitas', component: RelatorioReceitasComponent },
+  { path: 'autocadastro', component: AutocadastroComponent }, // Adicione esta linha
   {
     path: 'confirmar-pagamento/:numero',
     component: ConfirmarPagamentoComponent,
