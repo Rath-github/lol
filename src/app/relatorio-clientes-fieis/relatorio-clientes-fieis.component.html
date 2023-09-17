@@ -1,0 +1,40 @@
+
+<nav class="navbar navbar-expand-lg" style="background-color: grey;">
+  
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">LOL</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link active" aria-current="page" href="#">Home</a>
+        <a class="nav-link" href="#">Relatório de clientes</a>
+        <a class="nav-link" href="#">Relatório de Receitas</a>
+        <a class="nav-link disabled" aria-disabled="true">Relatório de Clientes Fieis</a>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="container">
+  <div class="shadow p-3 mb-5 bg-body-tertiary rounded"><h1>Relatório de Clientes Fiéis</h1></div>
+    
+    <button type="button" class="btn btn-danger" (click)="gerarRelatorio()">Gerar Relatório</button>
+   
+  
+    <div class="cliente-list">
+      <img src="C:\Users\victo\Downloads/cliente.jpg" alt="Imagens dos Clientes">
+      <ng-container *ngFor="let clienteFiel of clientesFieis">
+        <div class="cliente-item">
+          <h3 style="color:pink;">{{ clienteFiel.nome }}</h3>
+          
+          <p><strong>Email:</strong> {{ clienteFiel.email }}</p>
+          <p><strong>Total de Compras:</strong> R$ {{ clienteFiel.totalCompras.toFixed(2) }}</p>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+  
+
+  
