@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { AutocadastroComponent } from './autocadastro/autocadastro.component';
 import { LoginComponent } from './login/login.component';
 import { ClienteComponent } from './cliente/cliente.component';
@@ -13,6 +14,9 @@ import { ConfirmarRecolhimentoComponent } from './confirmar-recolhimento/confirm
 import { PecasRoupasComponent } from './pecas-roupas/pecas-roupas.component';
 import { FuncionariosComponent } from './funcionarios/funcionarios.component';
 import { RelatorioReceitasComponent } from './relatorio-receitas/relatorio-receitas.component';
+import { CancelarPedidoComponent } from './cancelar-pedido/cancelar-pedido.component';
+import { FinalizarPedidoComponent } from './finalizacao-pedido/finalizacao-pedido.component';
+import { RelatorioClientesFieisComponent } from './relatorio-clientes-fieis/relatorio-clientes-fieis.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -25,6 +29,9 @@ const routes: Routes = [
   { path: 'Funcionarios', component: FuncionariosComponent },
   { path: 'relatorio-receitas', component: RelatorioReceitasComponent },
   { path: 'autocadastro', component: AutocadastroComponent }, // Adicione esta linha
+    { path: 'cancelar-pedido', component: CancelarPedidoComponent },
+  { path: 'finalizar-pedido', component: FinalizarPedidoComponent },
+  {path: 'relatorio-clientes-fieis', component: RelatorioClientesFieisComponent},
   {
     path: 'confirmar-pagamento/:numero',
     component: ConfirmarPagamentoComponent,
@@ -36,6 +43,7 @@ const routes: Routes = [
   },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
