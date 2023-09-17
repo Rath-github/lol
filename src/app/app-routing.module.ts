@@ -10,6 +10,7 @@ const routes: Routes = [
   {path: 'relatorio-clientes-fieis', component: RelatorioClientesFieisComponent}
 ];
 
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

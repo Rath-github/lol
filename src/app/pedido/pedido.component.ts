@@ -55,4 +55,4 @@ export class PedidoComponent {
         return 1; // Tempo de lavagem padrão em dias
     }
   }
-}
+

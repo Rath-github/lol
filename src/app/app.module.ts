@@ -9,6 +9,7 @@ import { CancelarPedidoComponent } from './cancelar-pedido/cancelar-pedido.compo
 import { FinalizarPedidoComponent } from './finalizacao-pedido/finalizacao-pedido.component';
 import { RelatorioClientesFieisComponent } from './relatorio-clientes-fieis/relatorio-clientes-fieis.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,6 +17,9 @@ import { RelatorioClientesFieisComponent } from './relatorio-clientes-fieis/rela
     CancelarPedidoComponent,
     FinalizarPedidoComponent,
     RelatorioClientesFieisComponent
+
+    AutocadastroComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
