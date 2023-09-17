@@ -1,9 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
-import { AppRoutingModule } from './app-routing.module'; // Verifique se este import está correto
-
 
 import { AppComponent } from './app.component';
 import { ConfirmarPagamentoComponent } from './confirmar-pagamento/confirmar-pagamento.component';
@@ -32,15 +28,36 @@ import { AutocadastroComponent } from './autocadastro/autocadastro.component';
 import { RouterModule } from '@angular/router';
 
 import { FormsModule } from '@angular/forms';
+
 import { CancelarPedidoComponent } from './cancelar-pedido/cancelar-pedido.component';
 import { FinalizarPedidoComponent } from './finalizacao-pedido/finalizacao-pedido.component';
 import { RelatorioClientesFieisComponent } from './relatorio-clientes-fieis/relatorio-clientes-fieis.component';
+import { ConsultarPedidoComponent } from './consultar-pedido/consultar-pedido.component';
+import { ConfirmacaoLavagemComponent } from './confirmacao-lavagem/confirmacao-lavagem.component';
+import { RoupasComponent } from './roupas/roupas.component';
+
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
+
+    LoginComponent,
+    ClienteComponent,
+    PedidoComponent,
+    ConsultarPedidoComponent,
+    ConfirmacaoLavagemComponent,
+    RoupasComponent,
+    
+
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    CommonModule,
+    FormsModule
+
     HeaderComponent,
     LoginComponent,
     ClienteComponent,
@@ -60,10 +77,7 @@ import { RelatorioClientesFieisComponent } from './relatorio-clientes-fieis/rela
     FuncionariosComponent,
     RelatorioReceitasComponent,
   ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    AppRoutingModule, // Certifique-se de que AppRoutingModule está incluído aqui
+
   ],
   providers: [],
   bootstrap: [AppComponent],

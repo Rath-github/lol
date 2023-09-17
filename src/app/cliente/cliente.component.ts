@@ -13,11 +13,18 @@ export class ClienteComponent {
 
     // Add more sample data here or fetch data from the backend.
   ];
-
+  
+  exibirListarPedido = false;
   constructor(private router: Router) {}
 
   irParaPedido() {
     // Navega para a página de pedido
     this.router.navigate(['/pedido']);
+  }
+
+  listarPedidos(){
+    //lista os pedidos do cliente
+    this.exibirListarPedido = true;
+
   }
 }

@@ -17,6 +17,7 @@ import { RelatorioReceitasComponent } from './relatorio-receitas/relatorio-recei
 import { CancelarPedidoComponent } from './cancelar-pedido/cancelar-pedido.component';
 import { FinalizarPedidoComponent } from './finalizacao-pedido/finalizacao-pedido.component';
 import { RelatorioClientesFieisComponent } from './relatorio-clientes-fieis/relatorio-clientes-fieis.component';
+import { RoupasComponent } from './roupas/roupas.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -32,6 +33,7 @@ const routes: Routes = [
     { path: 'cancelar-pedido', component: CancelarPedidoComponent },
   { path: 'finalizar-pedido', component: FinalizarPedidoComponent },
   {path: 'relatorio-clientes-fieis', component: RelatorioClientesFieisComponent},
+   { path: 'roupas', component: RoupasComponent},
   {
     path: 'confirmar-pagamento/:numero',
     component: ConfirmarPagamentoComponent,
@@ -43,6 +45,7 @@ const routes: Routes = [
   },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
 ];
+
 
 
 @NgModule({
