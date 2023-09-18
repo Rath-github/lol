@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { AppRoutingModule } from './app-routing.module';
+import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+
 
 import { AppComponent } from './app.component';
-import { ConfirmarPagamentoComponent } from './confirmar-pagamento/confirmar-pagamento.component';
-import { FuncionarioComponent } from './funcionario/funcionario.component';
-import { ConfirmarRecolhimentoComponent } from './confirmar-recolhimento/confirmar-recolhimento.component';
 
 
-import { HeaderComponent } from './header/header.component';
+
 import { LoginComponent } from './login/login.component';
 import { ClienteComponent } from './cliente/cliente.component';
 import { PedidoComponent } from './pedido/pedido.component';
@@ -17,24 +18,15 @@ import { ConsultaPedidoComponent } from './consulta-pedido/consulta-pedido.compo
 import { ConfirmarPagamentoComponent } from './confirmar-pagamento/confirmar-pagamento.component';
 import { FuncionarioComponent } from './funcionario/funcionario.component';
 import { ConfirmarRecolhimentoComponent } from './confirmar-recolhimento/confirmar-recolhimento.component';
-import { FooterComponent } from './footer/footer.component';
-import { PecasRoupasComponent } from './pecas-roupas/pecas-roupas.component';
 import { FuncionariosComponent } from './funcionarios/funcionarios.component';
-import { RelatorioReceitasComponent } from './relatorio-receitas/relatorio-receitas.component';
-
-import { AutocadastroComponent } from './autocadastro/autocadastro.component';
-
-
-import { RouterModule } from '@angular/router';
-
-import { FormsModule } from '@angular/forms';
-
 import { CancelarPedidoComponent } from './cancelar-pedido/cancelar-pedido.component';
 import { FinalizarPedidoComponent } from './finalizacao-pedido/finalizacao-pedido.component';
 import { RelatorioClientesFieisComponent } from './relatorio-clientes-fieis/relatorio-clientes-fieis.component';
 import { ConsultarPedidoComponent } from './consultar-pedido/consultar-pedido.component';
 import { ConfirmacaoLavagemComponent } from './confirmacao-lavagem/confirmacao-lavagem.component';
 import { RoupasComponent } from './roupas/roupas.component';
+import { CommonModule } from '@angular/common';
+
 
 
 
@@ -49,22 +41,10 @@ import { RoupasComponent } from './roupas/roupas.component';
     ConsultarPedidoComponent,
     ConfirmacaoLavagemComponent,
     RoupasComponent,
-    
-
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    CommonModule,
-    FormsModule
-
-    HeaderComponent,
-    LoginComponent,
-    ClienteComponent,
-    PedidoComponent,
+    ListaPedidosComponent,
     CancelarPedidoComponent,
     FinalizarPedidoComponent,
-    RelatorioClientesFieisComponent
+    RelatorioClientesFieisComponent,
 
     AutocadastroComponent,
     ListaPedidosComponent,
@@ -72,13 +52,18 @@ import { RoupasComponent } from './roupas/roupas.component';
     ConfirmarPagamentoComponent,
     FuncionarioComponent,
     ConfirmarRecolhimentoComponent,
-    FooterComponent,
-    PecasRoupasComponent,
     FuncionariosComponent,
-    RelatorioReceitasComponent,
-  ],
 
   ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    CommonModule,
+    FormsModule,
+    
+  ],
+
+  
   providers: [],
   bootstrap: [AppComponent],
 

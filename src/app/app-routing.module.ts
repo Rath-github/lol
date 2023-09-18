@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { AutocadastroComponent } from './autocadastro/autocadastro.component';
 import { LoginComponent } from './login/login.component';
 import { ClienteComponent } from './cliente/cliente.component';
 import { PedidoComponent } from './pedido/pedido.component';
@@ -11,9 +10,7 @@ import { ConsultaPedidoComponent } from './consulta-pedido/consulta-pedido.compo
 import { ConfirmarPagamentoComponent } from './confirmar-pagamento/confirmar-pagamento.component';
 import { FuncionarioComponent } from './funcionario/funcionario.component';
 import { ConfirmarRecolhimentoComponent } from './confirmar-recolhimento/confirmar-recolhimento.component';
-import { PecasRoupasComponent } from './pecas-roupas/pecas-roupas.component';
 import { FuncionariosComponent } from './funcionarios/funcionarios.component';
-import { RelatorioReceitasComponent } from './relatorio-receitas/relatorio-receitas.component';
 import { CancelarPedidoComponent } from './cancelar-pedido/cancelar-pedido.component';
 import { FinalizarPedidoComponent } from './finalizacao-pedido/finalizacao-pedido.component';
 import { RelatorioClientesFieisComponent } from './relatorio-clientes-fieis/relatorio-clientes-fieis.component';
@@ -26,14 +23,12 @@ const routes: Routes = [
   { path: 'autocadastro', component: AutocadastroComponent },
   { path: 'lista-pedidos', component: ListaPedidosComponent },
   { path: 'consulta-pedido', component: ConsultaPedidoComponent },
-  { path: 'pecas-roupas', component: PecasRoupasComponent },
   { path: 'Funcionarios', component: FuncionariosComponent },
-  { path: 'relatorio-receitas', component: RelatorioReceitasComponent },
   { path: 'autocadastro', component: AutocadastroComponent }, // Adicione esta linha
-    { path: 'cancelar-pedido', component: CancelarPedidoComponent },
+  { path: 'cancelar-pedido', component: CancelarPedidoComponent },
   { path: 'finalizar-pedido', component: FinalizarPedidoComponent },
-  {path: 'relatorio-clientes-fieis', component: RelatorioClientesFieisComponent},
-   { path: 'roupas', component: RoupasComponent},
+  { path: 'relatorio-clientes-fieis', component: RelatorioClientesFieisComponent},
+  { path: 'roupas', component: RoupasComponent},
   {
     path: 'confirmar-pagamento/:numero',
     component: ConfirmarPagamentoComponent,
