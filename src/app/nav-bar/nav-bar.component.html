@@ -1,19 +1,19 @@
 <div id="container" class="navbar navbar-expand-lg navbar-dark bg-primary border-bottom border-3 shadow" *ngIf="usuarioLogado">
 
     <div class="col-md-2 mx-auto text-center" >
-        <img src="assets/img/logo1.png" width="100" height="55" >
+      <a href=""><img src="assets/img/logo1.png" width="100" height="55" > </a>
     </div>
 
-
+   
     <div class="col-md-9 row">
         <div class="col-md-2">
-            <button class="btn bg-info border-dark-4 shadow" >    Inicio</button>
+           <a routerLink="/cliente"> <button class="btn bg-info border-dark-4 shadow" >Inicio</button></a>
         </div>
         <div class="col-md-2">
-            <button class="btn bg-info border-dark-4 shadow">Novo Pedido</button>
+           <a routerLink="/pedido"> <button class="btn bg-info border-dark-4 shadow">Novo Pedido</button></a>
         </div>
         <div class="col-md-2">
-            <button class="btn bg-info border-dark-4 shadow">Meus Pedidos</button>
+           <a routerLink="/lista-pedidos"> <button class="btn bg-info border-dark-4 shadow">Meus Pedidos</button></a>
         </div>
        
     </div>

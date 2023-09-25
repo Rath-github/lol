@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { EstadosService } from './services';
 
 
 import { AppComponent } from './app.component';
@@ -26,6 +27,7 @@ import { ConsultarPedidoComponent } from './consultar-pedido/consultar-pedido.co
 import { ConfirmacaoLavagemComponent } from './confirmacao-lavagem/confirmacao-lavagem.component';
 import { RoupasComponent } from './roupas/roupas.component';
 import { CommonModule } from '@angular/common';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 
 
@@ -35,6 +37,7 @@ import { CommonModule } from '@angular/common';
   declarations: [
     AppComponent,
 
+    NavBarComponent,
     LoginComponent,
     ClienteComponent,
     PedidoComponent,
@@ -64,7 +67,7 @@ import { CommonModule } from '@angular/common';
   ],
 
   
-  providers: [],
+  providers: [EstadosService],
   bootstrap: [AppComponent],
 
 })
