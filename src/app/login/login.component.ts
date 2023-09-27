@@ -25,7 +25,6 @@ login(){
  
     if(this.usuario === "user@ufpr.br" && this.senha === "1234"){
       this.estados.alterarValor(true);
-      console.log(this.estados.usuarioLogado);
       this.router.navigate(['/cliente']);
 
     
