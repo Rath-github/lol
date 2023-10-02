@@ -1,4 +1,4 @@
-<!-- 
+
 <div class="container">
   <h2>Página Inicial de Funcionário</h2>
   <div class="form-group">
@@ -8,9 +8,12 @@
       id="filtroPedido"
       name="filtroPedido"
       [(ngModel)]="filtroSelecionado"
+      (change)="filtrarPedidos()"
     >
       <option value="todos">Todos os Pedidos</option>
-      <option value="hoje">Pedidos de Hoje</option>
+      <option value="aberto">Pedidos em Aberto</option>
+      <option value="aguardando">Aguardando Pagamento</option>
+      <option value="recolhido">Pedidos Recolhidos</option>
       <option value="periodo">Por Período de Datas</option>
     </select>
   </div>
@@ -95,4 +98,3 @@
     </tbody>
   </table>
 </div>
---> 
