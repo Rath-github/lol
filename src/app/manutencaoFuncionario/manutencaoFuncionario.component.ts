@@ -9,11 +9,11 @@ interface Funcionario {
 }
 
 @Component({
-  selector: 'app-funcionarios',
-  templateUrl: './funcionarios.component.html',
-  styleUrls: ['./funcionarios.component.css'],
+  selector: 'app-ManutFuncionarios',
+  templateUrl: './manutencaoFuncionario.component.html',
+  styleUrls: ['./manutencaoFuncionario.component.css'],
 })
-export class FuncionariosComponent implements OnInit {
+export class ManutencaoFuncionarioComponent implements OnInit {
   funcionarios: Funcionario[] = [];
   novoFuncionario: Funcionario = {
     id: 0,

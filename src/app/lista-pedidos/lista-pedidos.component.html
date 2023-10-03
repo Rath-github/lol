@@ -24,9 +24,9 @@
         <td>{{ pedido.estado }}</td>
         <td>{{ pedido.data | date:'dd/MM/yyyy HH:mm' }}</td>
         <td>
-          <button class="btn btn-primary" (click)="pagarPedido(pedido.numero)">Pagar</button>
+          <button class="btn btn-primary" (click)="pagarPedido(pedido.numero)" *ngIf="tipoUsuario==='cliente'">Pagar</button>
           <button class="btn btn-danger" (click)="cancelarPedido(pedido.numero)">Cancelar</button>
-          <a [routerLink]="['/confirmar-pagamento', pedido.numero]" class="btn btn-info">Confirmar Pagamento</a>
+          <a [routerLink]="['/confirmar-pagamento', pedido.numero]" class="btn btn-info" *ngIf="tipoUsuario==='funcionario'">Confirmar Pagamento</a>
         </td>
       </tr>
     </tbody>

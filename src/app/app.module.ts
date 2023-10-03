@@ -15,11 +15,10 @@ import { ClienteComponent } from './cliente/cliente.component';
 import { PedidoComponent } from './pedido/pedido.component';
 import { AutocadastroComponent } from './autocadastro/autocadastro.component';
 import { ListaPedidosComponent } from './lista-pedidos/lista-pedidos.component';
-import { ConsultaPedidoComponent } from './consulta-pedido/consulta-pedido.component';
 import { ConfirmarPagamentoComponent } from './confirmar-pagamento/confirmar-pagamento.component';
 import { FuncionarioComponent } from './funcionario/funcionario.component';
 import { ConfirmarRecolhimentoComponent } from './confirmar-recolhimento/confirmar-recolhimento.component';
-import { FuncionariosComponent } from './funcionarios/funcionarios.component';
+import { ManutencaoFuncionarioComponent } from './manutencaoFuncionario/manutencaoFuncionario.component';
 import { CancelarPedidoComponent } from './cancelar-pedido/cancelar-pedido.component';
 import { FinalizarPedidoComponent } from './finalizacao-pedido/finalizacao-pedido.component';
 import { RelatorioClientesFieisComponent } from './relatorio-clientes-fieis/relatorio-clientes-fieis.component';
@@ -51,11 +50,10 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 
     AutocadastroComponent,
     ListaPedidosComponent,
-    ConsultaPedidoComponent,
     ConfirmarPagamentoComponent,
     FuncionarioComponent,
     ConfirmarRecolhimentoComponent,
-    FuncionariosComponent,
+    ManutencaoFuncionarioComponent,
 
   ],
   imports: [

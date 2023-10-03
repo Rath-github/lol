@@ -83,12 +83,12 @@ login(){
       this.estados.alterarValor(true);
 
       if (usuarioEncontrado.tipo === 'cliente') {
-        this.router.navigate(['/cliente']);
-        this.acessoLogin = 'cliente';
+        this.estados.tipoUsuario('cliente');
+        this.router.navigate(['/cliente']); 
       } 
       else if (usuarioEncontrado.tipo === 'funcionario') {
+        this.estados.tipoUsuario('funcionario');
         this.router.navigate(['/funcionario']);
-        this.acessoLogin = 'funcionario';
       }
  }
    

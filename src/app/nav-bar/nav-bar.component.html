@@ -6,7 +6,7 @@
 
    
     <div class="col-md-9 row">
-        <div class="col-md-2">
+        <div class="col-md-2" *ngIf="tipoUsuario === 'cliente'">
            <a routerLink="/cliente"> 
                 <button class="btn bg-info border-dark-4 shadow" >
                     <i class="bi bi-house-door"></i>      
@@ -14,8 +14,16 @@
                 </button>
             </a>
         </div>
+        <div class="col-md-2" *ngIf="tipoUsuario === 'funcionario'">
+            <a routerLink="/funcionario"> 
+                 <button class="btn bg-info border-dark-4 shadow" >
+                     <i class="bi bi-house-door"></i>      
+                     Inicio
+                 </button>
+             </a>
+         </div>
 
-        <div class="col-md-2">
+        <div class="col-md-2" *ngIf="tipoUsuario === 'cliente'">
            <a routerLink="/pedido">
              <button class="btn bg-info border-dark-4 shadow">
                 <i class="bi bi-plus-circle"></i> 
@@ -30,6 +38,22 @@
                     Meus Pedidos
             </button></a>
         </div>
+        <div class="col-md-2" *ngIf="tipoUsuario === 'funcionario'">
+            <a routerLink="">
+              <button class="btn bg-info border-dark-4 shadow">
+                 <i class="bi bi-file-bar-graph"></i> 
+                     Relatorios
+              </button></a>
+         </div>
+
+         
+        <div class="col-md-2" *ngIf="tipoUsuario === 'funcionario'">
+            <a routerLink="">
+              <button class="btn bg-info border-dark-4 shadow">
+                <i class="bi bi-sliders2"></i>
+                     Manutenções
+              </button></a>
+         </div>
        
     </div>
 
