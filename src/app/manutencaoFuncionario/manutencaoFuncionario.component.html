@@ -1,80 +1,43 @@
-<div>
-  <div style="margin:2%;">
+<div id="container">
+  <div class="d-flex justify-content-center align-items-center minha-classe shadow mb-4" >
       <h2 class="display-5">Manutenção de Funcionários</h2>
   </div>
-  <div class="col-md-6">
-    <table class="table table-striped table-bordered table-hover m-3">
-        <tr class="bg-light">
-            <td>Id</td>
-            <td>Nome</td>
-            <td>Email</td>
-            <td>Data de Nascimento</td>
-            <td>Cargo</td>
-            <td><button (click)="campoNovo=true; campoEditar=false" class="btn btn-success col-md-6 m-1">Novo</button></td>
-        </tr>
-        <tr *ngFor="let funcionario of funcionarios; let i = index">
-            <td>{{funcionario.id}}</td>
-            <td>{{funcionario.nome}}</td>
-            <td>{{funcionario.email}}</td>
-            <td>{{funcionario.dtNascimento}}</td>
-            <td>{{funcionario.cargo}}</td>
-            
 
-            <button (click)="selecionarEditar(funcionario.id)" class="btn btn-primary m-1">Editar</button>
-
-            <button (click)="removerFuncionario(i)" class="btn btn-danger">Remover</button>
-
-        </tr>
-    </table>
-</div>  
-
-
-<div class="col-md-4 m-3">
-    <div class="border" *ngIf="campoNovo">
-      <h2 class="d-flex justify-content-center align-items-center">Novo Funcionario</h2>
-      <form (ngSubmit)="adicionarFuncionario()" class="m-3">
-          <div>
-              <label for="nome" class="col-sm-4 col-form-label">Nome:</label>
-              <input type="text" id="nome" name="nome" placeholder="Digite o nome" maxlength="25" required [(ngModel)]="novoFuncionario.nome">
-          </div>
-
-          <div>
-              <label for="cpf" class="col-sm-4 col-form-label">CPF: </label>
-              <input type="number" id="cpf" name="cpf" placeholder="Digite o CPF" required [(ngModel)]="novoFuncionario.cpf">
-          </div>
-
-          <div>
-              <label for="email" class="col-sm-4 col-form-label">Email:</label>
-              <input type="text" id="prazo" name="prazo" placeholder="Digite o Email" required [(ngModel)]="novoFuncionario.email">
-          </div>
-
-          <div>
-            <label for="dtNascimento" class="col-sm-4 col-form-label">Data de Nascimento:</label>
-            <input type="text" id="dtNascimento" name="dtNascimento" placeholder="Digite a sua data de nascimento" required [(ngModel)]="novoFuncionario.dtNascimento">
-          </div>
-
-
-          <div>
-            <label for="cargo" class="col-sm-4 col-form-label">Cargo:</label>
-            <input type="text" id="cargo" name="cargo" placeholder="Digite o cargo exercido" required [(ngModel)]="novoFuncionario.cargo">
-          </div>
-
-          <div>
-            <label for="senha" class="col-sm-4 col-form-label">Digite uma senha:</label>
-            <input type="password" id="senha" name="senha" placeholder="Digite uma senha" required [(ngModel)]="novoFuncionario.senha">
-          </div>
-
-          <div class="d-flex justify-content-center align-items-center ">
-              <button type="submit" class="btn btn-success m-2">Salvar</button>
-              <button (click)="campoNovo=false" class="btn btn-danger">Cancelar</button>
-          </div>
-
-      </form>        
+  <div class="row">
+    <div class="col-md-1">
     </div>
+
+    <div class="col-md-6">
+      <table class="table table-striped table-bordered table-hover m-3">
+          <tr class="bg-light">
+              <td>Id</td>
+              <td>Nome</td>
+              <td>Email</td>
+              <td>Data de Nascimento</td>
+              <td>Cargo</td>
+              <td><button (click)="campoNovo=true; campoEditar=false" class="btn btn-success col-md-6 m-1">Novo</button></td>
+          </tr>
+          <tr *ngFor="let funcionario of funcionarios; let i = index">
+              <td>{{funcionario.id}}</td>
+              <td>{{funcionario.nome}}</td>
+              <td>{{funcionario.email}}</td>
+              <td>{{funcionario.dtNascimento}}</td>
+              <td>{{funcionario.cargo}}</td>
+              
   
-      <div class="border" *ngIf="campoEditar">
-        <h2 class="d-flex justify-content-center align-items-center">Editar Funcionario</h2>
-        <form (ngSubmit)="editar()" class="m-3">
+              <button (click)="selecionarEditar(funcionario.id)" class="btn btn-primary m-1">Editar</button>
+  
+              <button (click)="removerFuncionario(i)" class="btn btn-danger">Remover</button>
+  
+          </tr>
+      </table>
+    </div>  
+  
+  
+    <div class="col-md-4 m-3">
+      <div class="border" *ngIf="campoNovo">
+        <h2 class="d-flex justify-content-center align-items-center minha-classe display-6">Novo Funcionario</h2>
+        <form (ngSubmit)="adicionarFuncionario()" class="m-3">
             <div>
                 <label for="nome" class="col-sm-4 col-form-label">Nome:</label>
                 <input type="text" id="nome" name="nome" placeholder="Digite o nome" maxlength="25" required [(ngModel)]="novoFuncionario.nome">
@@ -95,7 +58,6 @@
               <input type="text" id="dtNascimento" name="dtNascimento" placeholder="Digite a sua data de nascimento" required [(ngModel)]="novoFuncionario.dtNascimento">
             </div>
   
-  
             <div>
               <label for="cargo" class="col-sm-4 col-form-label">Cargo:</label>
               <input type="text" id="cargo" name="cargo" placeholder="Digite o cargo exercido" required [(ngModel)]="novoFuncionario.cargo">
@@ -108,9 +70,52 @@
   
             <div class="d-flex justify-content-center align-items-center ">
                 <button type="submit" class="btn btn-success m-2">Salvar</button>
-                <button (click)="campoEditar=false" class="btn btn-danger">Cancelar</button>
+                <button (click)="campoNovo=false" class="btn btn-danger">Cancelar</button>
             </div>
   
         </form>        
       </div>
+    
+      <div class="border" *ngIf="campoEditar">
+          <h2 class="d-flex justify-content-center align-items-center minha-classe display-6">Editar Funcionario</h2>
+          <form (ngSubmit)="editar()" class="m-3">
+              <div>
+                  <label for="nome" class="col-sm-4 col-form-label">Nome:</label>
+                  <input type="text" id="nome" name="nome" placeholder="Digite o nome" maxlength="25" required [(ngModel)]="novoFuncionario.nome">
+              </div>
+    
+              <div>
+                  <label for="cpf" class="col-sm-4 col-form-label">CPF: </label>
+                  <input type="number" id="cpf" name="cpf" placeholder="Digite o CPF" required [(ngModel)]="novoFuncionario.cpf">
+              </div>
+    
+              <div>
+                  <label for="email" class="col-sm-4 col-form-label">Email:</label>
+                  <input type="text" id="prazo" name="prazo" placeholder="Digite o Email" required [(ngModel)]="novoFuncionario.email">
+              </div>
+    
+              <div>
+                <label for="dtNascimento" class="col-sm-4 col-form-label">Data de Nascimento:</label>
+                <input type="text" id="dtNascimento" name="dtNascimento" placeholder="Digite a sua data de nascimento" required [(ngModel)]="novoFuncionario.dtNascimento">
+              </div>
+    
+              <div>
+                <label for="cargo" class="col-sm-4 col-form-label">Cargo:</label>
+                <input type="text" id="cargo" name="cargo" placeholder="Digite o cargo exercido" required [(ngModel)]="novoFuncionario.cargo">
+              </div>
+    
+              <div>
+                <label for="senha" class="col-sm-4 col-form-label">Digite uma senha:</label>
+                <input type="password" id="senha" name="senha" placeholder="Digite uma senha" required [(ngModel)]="novoFuncionario.senha">
+              </div>
+    
+              <div class="d-flex justify-content-center align-items-center ">
+                  <button type="submit" class="btn btn-success m-2">Salvar</button>
+                  <button (click)="campoEditar=false" class="btn btn-danger">Cancelar</button>
+              </div>
+    
+          </form>        
+      </div>
+    </div>
   </div>
+</div>
