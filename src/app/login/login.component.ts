@@ -81,6 +81,7 @@ login(){
   if (usuarioEncontrado) {
       
       this.estados.alterarValor(true);
+      this.estados.emailUsuario(usuarioEncontrado.email);
 
       if (usuarioEncontrado.tipo === 'cliente') {
         this.estados.tipoUsuario('cliente');

@@ -7,14 +7,16 @@ import { BehaviorSubject } from 'rxjs';
 export class EstadosService {
   usuarioLogado : boolean = false;
   acessoLogin : string = '';
+  userEmail : string = '';
 
   private usuarioLogadoSubject = new BehaviorSubject<boolean>(false);
   usuarioLogado$ = this.usuarioLogadoSubject.asObservable();
 
   private acessoLoginSub = new BehaviorSubject<any>(false);
-  
   acessoLogin$ = this.acessoLoginSub.asObservable();
   
+  private userEmailSubject = new BehaviorSubject<any>(false);
+  userEmail$ = this.userEmailSubject.asObservable();
 
   constructor() { }
 
@@ -24,5 +26,9 @@ export class EstadosService {
 
   tipoUsuario(tipo: string){
     this.acessoLoginSub.next(tipo);
+  }
+
+  emailUsuario(nome: string){
+    this.userEmailSubject.next(nome);
   }
 }

@@ -33,7 +33,7 @@
         
         <div class="col-md-4 m-3">
             <div class="border" *ngIf="campoNovo">
-                <h2 class="d-flex justify-content-center align-items-center">Nova Peça</h2>
+                <h2 class="d-flex justify-content-center align-items-center display-6" style="color: #157347;">Nova Peça</h2>
                 <form (ngSubmit)="novo()" class="m-3">
                     <div>
                         <label for="nome" class="col-sm-4 col-form-label">Nome da Peça:</label>
@@ -59,7 +59,7 @@
             </div>
       
             <div class="border"  *ngIf="campoEditar">
-                <h2 class="d-flex justify-content-center align-items-center">Editar</h2>
+                <h2 class="d-flex justify-content-center align-items-center display-6" style="color: #157347;">Editar</h2>
                 <form (ngSubmit)="editar()" class="m-3">
                     <div>
                         <label for="nome" class="col-sm-4 col-form-label">Nome da Peça: </label>

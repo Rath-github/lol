@@ -16,6 +16,7 @@ export class NavBarComponent {
  
   usuarioLogado: boolean = false;
   tipoUsuario: string = '';
+  userEmail : string = '';
 
   ngOnInit(): void {
     this.estados.usuarioLogado$.subscribe((logado) => {
@@ -24,6 +25,10 @@ export class NavBarComponent {
 
     this.estados.acessoLogin$.subscribe((tipo) =>{
       this.tipoUsuario = tipo;
+    })
+
+    this.estados.userEmail$.subscribe((userEmail) =>{
+      this.userEmail = userEmail;
     })
  
 }

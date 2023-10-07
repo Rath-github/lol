@@ -13,7 +13,6 @@ import { ConfirmarRecolhimentoComponent } from './confirmar-recolhimento/confirm
 import { ManutencaoFuncionarioComponent } from './manutencaoFuncionario/manutencaoFuncionario.component';
 import { CancelarPedidoComponent } from './cancelar-pedido/cancelar-pedido.component';
 import { FinalizarPedidoComponent } from './finalizacao-pedido/finalizacao-pedido.component';
-import { RelatorioClientesFieisComponent } from './relatorio-clientes-fieis/relatorio-clientes-fieis.component';
 import { RoupasComponent } from './roupas/roupas.component';
 import { PaginaRelatoriosComponent } from './pagina-relatorios/pagina-relatorios.component';
 
@@ -28,7 +27,6 @@ const routes: Routes = [
   { path: 'autocadastro', component: AutocadastroComponent }, 
   { path: 'cancelar-pedido', component: CancelarPedidoComponent },
   { path: 'finalizar-pedido', component: FinalizarPedidoComponent },
-  { path: 'relatorio-clientes-fieis', component: RelatorioClientesFieisComponent},
   { path: 'roupas', component: RoupasComponent},
   { path: 'confirmar-pagamento/:numero', component: ConfirmarPagamentoComponent,},
   { path: 'funcionario', component: FuncionarioComponent },

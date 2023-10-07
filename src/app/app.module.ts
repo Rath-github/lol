@@ -28,8 +28,8 @@ import { RoupasComponent } from './roupas/roupas.component';
 import { CommonModule } from '@angular/common';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { PaginaRelatoriosComponent } from './pagina-relatorios/pagina-relatorios.component';
-import { PaginaManutencaoComponent } from './pagina-manutencao/pagina-manutencao.component';
 import { RelatorioReceitasComponent } from './relatorio-receitas/relatorio-receitas.component';
+import { RelatorioClientesComponent } from './relatorio-clientes/relatorio-clientes.component';
 
 
 
@@ -58,8 +58,8 @@ import { RelatorioReceitasComponent } from './relatorio-receitas/relatorio-recei
     ConfirmarRecolhimentoComponent,
     ManutencaoFuncionarioComponent,
     PaginaRelatoriosComponent,
-    PaginaManutencaoComponent,
     RelatorioReceitasComponent,
+    RelatorioClientesComponent,
 
   ],
   imports: [

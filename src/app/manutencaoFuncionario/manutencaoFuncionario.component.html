@@ -15,7 +15,7 @@
               <td>Email</td>
               <td>Data de Nascimento</td>
               <td>Cargo</td>
-              <td><button (click)="campoNovo=true; campoEditar=false" class="btn btn-success col-md-6 m-1">Novo</button></td>
+              <td><button (click)="campoNovo=true; campoEditar=false" class="btn btn-success col-md-9 m-1">Novo</button></td>
           </tr>
           <tr *ngFor="let funcionario of funcionarios; let i = index">
               <td>{{funcionario.id}}</td>
@@ -36,7 +36,7 @@
   
     <div class="col-md-4 m-3">
       <div class="border" *ngIf="campoNovo">
-        <h2 class="d-flex justify-content-center align-items-center minha-classe display-6">Novo Funcionario</h2>
+        <h2 class="d-flex justify-content-center align-items-center display-6" style="color: #157347;">Novo Funcionario</h2>
         <form (ngSubmit)="adicionarFuncionario()" class="m-3">
             <div>
                 <label for="nome" class="col-sm-4 col-form-label">Nome:</label>
@@ -77,7 +77,7 @@
       </div>
     
       <div class="border" *ngIf="campoEditar">
-          <h2 class="d-flex justify-content-center align-items-center minha-classe display-6">Editar Funcionario</h2>
+          <h2 class="d-flex justify-content-center align-items-center display-6" style="color: #157347;">Editar Funcionario</h2>
           <form (ngSubmit)="editar()" class="m-3">
               <div>
                   <label for="nome" class="col-sm-4 col-form-label">Nome:</label>
