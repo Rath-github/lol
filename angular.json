@@ -90,17 +90,17 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/popper.js/dist/umd/popper.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           }
         }
       }
     }
   },
   "cli": {
-<<<<<<< HEAD
-    "analytics": "975c61eb-80fa-47aa-baa4-64cea5a6f9c3"
-=======
-    "analytics": "6ea5fabe-bed0-4298-a95d-7c103d793ca3"
->>>>>>> 2c53b7b920fc8b2ab22c897c2b53f569b1e0716a
-  }
+    "analytics": false
+ }
 }

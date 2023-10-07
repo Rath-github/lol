@@ -39,7 +39,7 @@
             </button></a>
         </div>
         <div class="col-md-2" *ngIf="tipoUsuario === 'funcionario'">
-            <a routerLink="">
+            <a routerLink="/relatorios">
               <button class="btn bg-info border-dark-4 shadow">
                  <i class="bi bi-file-bar-graph"></i> 
                      Relatorios
@@ -48,13 +48,21 @@
 
          
         <div class="col-md-2" *ngIf="tipoUsuario === 'funcionario'">
-            <a routerLink="">
-              <button class="btn bg-info border-dark-4 shadow">
-                <i class="bi bi-sliders2"></i>
-                     Manutenções
-              </button></a>
+              <button class="btn bg-info border-dark-4 shadow " ngbDropdown>                      
+                  <a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown1" role="button"> 
+                    <i class="bi bi-sliders2"></i>
+                        Manutenções
+                    <i class="fa fa-user-edit"></i></a>
+                    <div ngbDropdownMenu aria-labelledby="navbarDropdown1" class="dropdown-menu">
+                      <a ngbDropdownItem href="#" routerLink="manutencao-Funcionario" (click)="$event.preventDefault()">Funcionarios</a>
+                      <a ngbDropdownItem href="#" routerLink="roupas" (click)="$event.preventDefault()">Roupas</a>
+                    </div>
+              </button>
+
          </div>
-       
+
+
+  
     </div>
 
     <div class="col-md-1">

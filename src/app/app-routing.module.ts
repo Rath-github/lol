@@ -15,6 +15,7 @@ import { CancelarPedidoComponent } from './cancelar-pedido/cancelar-pedido.compo
 import { FinalizarPedidoComponent } from './finalizacao-pedido/finalizacao-pedido.component';
 import { RelatorioClientesFieisComponent } from './relatorio-clientes-fieis/relatorio-clientes-fieis.component';
 import { RoupasComponent } from './roupas/roupas.component';
+import { PaginaRelatoriosComponent } from './pagina-relatorios/pagina-relatorios.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -32,7 +33,9 @@ const routes: Routes = [
   { path: 'confirmar-pagamento/:numero', component: ConfirmarPagamentoComponent,},
   { path: 'funcionario', component: FuncionarioComponent },
   { path: 'confirmar-recolhimento/:numero', component: ConfirmarRecolhimentoComponent,},
+  { path: 'relatorios', component: PaginaRelatoriosComponent},
   { path: '', redirectTo: '/login', pathMatch: 'full' },
+  
 ];
 
 

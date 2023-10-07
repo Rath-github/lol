@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { EstadosService } from './services';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 
@@ -27,6 +27,9 @@ import { ConfirmacaoLavagemComponent } from './confirmacao-lavagem/confirmacao-l
 import { RoupasComponent } from './roupas/roupas.component';
 import { CommonModule } from '@angular/common';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { PaginaRelatoriosComponent } from './pagina-relatorios/pagina-relatorios.component';
+import { PaginaManutencaoComponent } from './pagina-manutencao/pagina-manutencao.component';
+import { RelatorioReceitasComponent } from './relatorio-receitas/relatorio-receitas.component';
 
 
 
@@ -54,6 +57,9 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     FuncionarioComponent,
     ConfirmarRecolhimentoComponent,
     ManutencaoFuncionarioComponent,
+    PaginaRelatoriosComponent,
+    PaginaManutencaoComponent,
+    RelatorioReceitasComponent,
 
   ],
   imports: [
@@ -61,6 +67,8 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     AppRoutingModule,
     CommonModule,
     FormsModule,
+    NgbModule
+
     
   ],
 
