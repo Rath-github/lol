@@ -8,17 +8,17 @@ import { EstadosService } from '../services';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  usuario : string = 'joao@gmail.com';
-  senha : string = '1234';
+  usuario : string = '';
+  senha : string = '';
   loginIncorreto : boolean = false;
   acessoLogin : string = '';
-  
-  
+
+
 
   constructor(private router: Router, private estados: EstadosService) {}
 
   ngOnInit(): void {
-  
+
 }
 usuarios : any[] = [
   {
@@ -77,22 +77,22 @@ login(){
   const usuarioEncontrado = this.usuarios.find(
     (user) => user.email === this.usuario && user.senha === this.senha
   );
- 
+
   if (usuarioEncontrado) {
-      
+
       this.estados.alterarValor(true);
       this.estados.emailUsuario(usuarioEncontrado.email);
 
       if (usuarioEncontrado.tipo === 'cliente') {
         this.estados.tipoUsuario('cliente');
-        this.router.navigate(['/cliente']); 
-      } 
+        this.router.navigate(['/cliente']);
+      }
       else if (usuarioEncontrado.tipo === 'funcionario') {
         this.estados.tipoUsuario('funcionario');
         this.router.navigate(['/funcionario']);
       }
  }
-   
+
   else{
     this.loginIncorreto = true;
   }
