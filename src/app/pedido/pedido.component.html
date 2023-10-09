@@ -1,42 +1,57 @@
 <div class="container">
-  <h2>Fazer Pedido</h2>
-  <form #pedidoForm="ngForm">
-    <div class="form-group">
-      <label for="roupas">Roupas (separadas por vírgula):</label>
-      <input
-        type="text"
-        class="form-control"
-        id="roupas"
-        name="roupas"
-        required
-        [(ngModel)]="roupas"
-      />
+  <div class="d-flex justify-content-center align-items-center minha-classe shadow mb-4">
+    <h3 class="display-6">Novo Pedido</h3>
+  </div>
+
+  <form class="form-group">
+    <div class="row">
+      <div class="col-md-6">
+        <label for="roupaselecionada">Selecione uma Roupa:</label>
+        <select id="roupaselecionada" name="roupaSelect" [(ngModel)]="roupaSelecionada" class="form-select">
+          <option value=""></option>
+          <option *ngFor="let roupa of roupasDisponiveis" value="{{roupa.nome}}">{{roupa.nome}}</option>
+        </select>
+      </div>
+      <div class="col-md-6">
+        <label for="quantidade">Quantidade:</label>
+        <input type="number" min="1" max="20" value="0" id="quantidade" name="quantidade" [(ngModel)]="quantidade" class="form-control">
+      </div>
     </div>
-    <button type="button" class="btn btn-primary" (click)="fazerPedido()">
-      Calcular Orçamento
-    </button>
+
+    <button type="button" class="btn btn-primary m-3" (click)="adicionar()">Adicionar</button>
   </form>
 
-  <div *ngIf="orcamento > 0">
-    <h3>Orçamento:</h3>
-    <p>Valor: R$ {{ orcamento }}, Prazo: {{ prazo }} dias</p>
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <td>Roupa</td>
+        <td>Quantidade</td>
+        <td>Prazo</td>
+        <td>Preço</td>
+        <td>Ação</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let roupa of pedido.pedidoRoupas; let i = index">
+        <td>{{roupa.tipo}}</td>
+        <td>{{roupa.quantidade}} peças</td>
+        <td>{{roupa.prazo}} dias</td>
+        <td>{{roupa.preco}},00 R$</td>
+        <td>
+          <button class="btn btn-danger" (click)="excluirItem(i)">Excluir</button>
+        </td>
+      </tr>
+    </tbody>
+    <tr>
+      <td>Total:</td>
+      <td></td>
+      <td></td>
+      <td>{{orcamento}},00 R$</td>
+    </tr>
+  </table>
 
-    <div *ngIf="!pedidoAprovado && !pedidoRejeitado">
-      <button type="button" class="btn btn-success" (click)="aprovarPedido()">
-        Aprovar Pedido
-      </button>
-      <button type="button" class="btn btn-danger" (click)="rejeitarPedido()">
-        Rejeitar Pedido
-      </button>
-    </div>
+  <div>
+    <button type="button" class="btn btn-success m-3" (click)="aprovarPedido()">Aprovar Pedido</button>
+    <button type="button" class="btn btn-danger m-3" (click)="rejeitarPedido()">Rejeitar</button>
   </div>
-
-  <div *ngIf="pedidoAprovado">
-    <h3>Pedido Aprovado</h3>
-    <p>Número de Pedido: {{ numeroPedido }}</p>
-  </div>
-
-  <div *ngIf="pedidoRejeitado">
-    <h3>Pedido Rejeitado</h3>
-  </div>
-
+</div>
