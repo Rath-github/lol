@@ -8,7 +8,7 @@ import { EstadosService } from '../services';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  usuario : string = 'maria@gmail.com';
+  usuario : string = 'joao@gmail.com';
   senha : string = '1234';
   loginIncorreto : boolean = false;
   acessoLogin : string = '';
