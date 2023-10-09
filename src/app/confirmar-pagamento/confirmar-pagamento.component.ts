@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-confirmar-pagamento',
@@ -9,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 export class ConfirmarPagamentoComponent implements OnInit {
   numeroPedido: string = '';
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
@@ -19,5 +20,6 @@ export class ConfirmarPagamentoComponent implements OnInit {
 
   confirmarPagamento(): void {
     alert(`Pagamento do Pedido ${this.numeroPedido} confirmado com sucesso!`);
+    this.router.navigate(['/lista-pedidos']);
   }
 }

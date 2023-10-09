@@ -1,5 +1,9 @@
+<div class="d-flex justify-content-center align-items-center shadow mb-4" >
+  <h2 class="display-5" style="color:#6C9A8B;">Lista de Pedidos</h2>
+</div>
+
 <div class="container">
-  <h2>Lista de Pedidos</h2>
+  
   <div class="form-group">
     <label for="estadoFiltro">Filtrar por estado:</label>
     <select class="form-control" id="estadoFiltro" [(ngModel)]="estadoFiltro">
@@ -24,9 +28,9 @@
         <td>{{ pedido.estado }}</td>
         <td>{{ pedido.data | date:'dd/MM/yyyy HH:mm' }}</td>
         <td>
-          <button class="btn btn-primary" (click)="pagarPedido(pedido.numero)">Pagar</button>
+          <button class="btn btn-primary" (click)="pagarPedido(pedido.numero)" *ngIf="tipoUsuario==='cliente'">Pagar</button>
           <button class="btn btn-danger" (click)="cancelarPedido(pedido.numero)">Cancelar</button>
-          <a [routerLink]="['/confirmar-pagamento', pedido.numero]" class="btn btn-info">Confirmar Pagamento</a>
+          <a [routerLink]="['/confirmar-pagamento', pedido.numero]" class="btn btn-info" *ngIf="tipoUsuario==='funcionario'">Confirmar Pagamento</a>
         </td>
       </tr>
     </tbody>

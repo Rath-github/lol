@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EstadosService } from '../services';
 
 @Component({
   selector: 'app-lista-pedidos',
@@ -14,10 +15,16 @@ export class ListaPedidosComponent implements OnInit {
   ];
 
   estadoFiltro: string = '';
+  
 
-  constructor() { }
+  constructor(private estados: EstadosService) { }
+
+  tipoUsuario: string = '';
 
   ngOnInit(): void {
+    this.estados.acessoLogin$.subscribe((tipo) =>{
+      this.tipoUsuario = tipo;})
+
   }
 
   filtrarPorEstado(): any[] {

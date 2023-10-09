@@ -1,0 +1,8 @@
+.button-container {
+    display: flex;/* Distribui o espaço igualmente entre os elementos filhos */
+  }
+
+  .button-container .btn {
+    margin-right: 1em; /* Espaçamento entre os botões (ajuste conforme necessário) */
+  }
+

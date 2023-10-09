@@ -1,29 +1,85 @@
-<div id="container" class="navbar navbar-expand-lg navbar-dark bg-primary border-bottom border-3 shadow" *ngIf="usuarioLogado">
+<div class="navbar navbar-expand-lg navbar-dark bg-primary border-bottom border-3 shadow" *ngIf="usuarioLogado">
 
-    <div class="col-md-2 mx-auto text-center" >
-        <img src="assets/img/logo1.png" width="100" height="55" >
+  
+    <div class="col-md-1 mx-auto text-center" >
+      <a href=""><img src="assets/img/logo1.png" width="100" height="55" > </a>
     </div>
 
-
-    <div class="col-md-9 row">
-        <div class="col-md-2">
-            <button class="btn bg-info border-dark-4 shadow" >    Inicio</button>
+   
+    <div class="col-md-9 row align-items-center ">
+        <div class="col-md-2" *ngIf="tipoUsuario === 'cliente'">
+           <a routerLink="/cliente"> 
+                <button class="btn border-dark-4 shadow" style="background-color: #4ba8ff">
+                    <i class="bi bi-house-door"></i>      
+                    Inicio
+                </button>
+            </a>
         </div>
-        <div class="col-md-2">
-            <button class="btn bg-info border-dark-4 shadow">Novo Pedido</button>
+        <div class="col-md-2" *ngIf="tipoUsuario === 'funcionario'">
+            <a routerLink="/funcionario"> 
+                 <button class="btn border-dark-4 shadow" style="background-color: #4ba8ff">
+                     <i class="bi bi-house-door"></i>      
+                     Inicio
+                 </button>
+             </a>
+         </div>
+
+        <div class="col-md-2" *ngIf="tipoUsuario === 'cliente'">
+           <a routerLink="/pedido">
+             <button class="btn border-dark-4 shadow" style="background-color: #4ba8ff">
+                <i class="bi bi-plus-circle"></i> 
+                    Novo Pedido
+             </button></a>
         </div>
+        
         <div class="col-md-2">
-            <button class="btn bg-info border-dark-4 shadow">Meus Pedidos</button>
+           <a routerLink="/lista-pedidos"> 
+            <button class="btn border-dark-4 shadow" style="background-color: #4ba8ff">
+                <i class="bi bi-bag-heart"></i>
+                    Meus Pedidos
+            </button></a>
         </div>
-       
-    </div>
 
-    <div class="col-md-1">
-        <img src="assets/img/user.png" width="40" height="40" class="border-dark-1 shadow" >
-    </div>
+        <div class="col-md-2">
+            <a routerLink="/consulta-pedido">
+              <button class="btn border-dark-4 shadow" style="background-color: #4ba8ff">
+                <i class="bi bi-search"></i>
+                     Consultar
+              </button></a>
+         </div>
 
+        <div class="col-md-2" *ngIf="tipoUsuario === 'funcionario'">
+            <a routerLink="/relatorios">
+              <button class="btn border-dark-4 shadow" style="background-color: #4ba8ff">
+                 <i class="bi bi-file-bar-graph"></i> 
+                     Relatorios
+              </button></a>
+         </div>
 
+         
+        <div class="col-md-2 " *ngIf="tipoUsuario === 'funcionario'">
+              <button class="btn border-dark-4 shadow " style="background-color: #4ba8ff" ngbDropdown>                      
+                  <a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown1" role="button"> 
+                    <i class="bi bi-sliders2"></i>
+                        Manutenções
+                    <i class="fa fa-user-edit"></i></a>
+                    <div ngbDropdownMenu aria-labelledby="navbarDropdown1" class="dropdown-menu " style="background-color: #0D6EFD;">
+                      <a ngbDropdownItem href="#" routerLink="manutencao-Funcionario" (click)="$event.preventDefault()">Funcionarios</a>
+                      <a ngbDropdownItem href="#" routerLink="roupas" (click)="$event.preventDefault()">Roupas</a>
+                    </div>
+              </button>
+         </div>    
 
-    
+        <div class="col-md-2 ">
+            <div ngbDropdown class="d-inline-block d-flex">
+              <button class="btn btn-link" ngbDropdownToggle>
+                <i class="bi bi-person-circle " style="font-size: 2em; color: #0e508d;"></i>
+              </button>
+              <div ngbDropdownMenu aria-labelledby="navbarDropdown1" class="dropdown-menu " style="background-color: #0D6EFD;">
+                <a ngbDropdownItem  (click)="$event.preventDefault()">{{userEmail}}</a>
+                <a ngbDropdownItem href=""> <i class="bi bi-box-arrow-left"></i> Sair</a>
+              </div>
+          </div>  
+    </div>   
 </div>
 
