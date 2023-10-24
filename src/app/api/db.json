@@ -1,0 +1,45 @@
+{
+  "pedidos": [
+    {
+      "numeroPedido": "123",
+      "roupas": "camiseta",
+      "orcamento": 50,
+      "estado": "EM ABERTO",
+      "prazo": 2
+    },
+    {
+      "numeroPedido": "124",
+      "roupas": "calça",
+      "orcamento": 100,
+      "estado": "EM ABERTO",
+      "prazo": 3
+    },
+    {
+      "numeroPedido": "125",
+      "roupas": "vestido",
+      "orcamento": 150,
+      "estado": "PRONTO",
+      "prazo": 0
+    }
+  ],
+  "pecas": [
+    {
+      "id": 1,
+      "nome": "camisa",
+      "preco": 50,
+      "estoque": 2
+    },
+    {
+      "id": 2,
+      "nome": "calca",
+      "preco": 100,
+      "estoque": 3
+    },
+    {
+      "id": 3,
+      "nome": "vestido",
+      "preco": 150,
+      "estoque": 4
+    }
+  ]
+}
