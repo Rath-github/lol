@@ -1,59 +1,42 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-consultar-pedido',
   templateUrl: './consultar-pedido.component.html',
-  styleUrls: ['./consultar-pedido.component.css']
+  styleUrls: ['./consultar-pedido.component.css'],
 })
 export class ConsultarPedidoComponent {
   roupas: string = '';
   orcamento: number = 0;
   prazo: number = 0;
-  estado: string=''; 
-  numeroPedido: string = '';
+  estado: string = '';
+  id: string = ''; // Mantém o número do pedido que o usuário digita
+  idPedido: string = ''; // Armazena o id do pedido após a busca
 
-  
-  
-  pedidos: any[] = [
-    { numeroPedido:'123',roupas:'camiseta', orcamento: 50, estado: 'EM ABERTO',prazo:  2 },
-    { numeroPedido:'124',roupas:'calça', orcamento: 100, estado: 'EM ABERTO',prazo:  3 },
-    { numeroPedido:'125',roupas:'vestido', orcamento: 150, estado: 'PRONTO',prazo:  0 },
-  ];
-  
-  
-  pedidoNum : string = '';
-  exibirPedido : boolean = false;
-  naoEncontrado : boolean = false;
+  exibirPedido: boolean = false;
+  naoEncontrado: boolean = false;
 
-  buscarPedido(){
-    const pedidoEncontrado = this.pedidos.find(pedido => pedido.numeroPedido === this.pedidoNum);
+  constructor(private http: HttpClient) {}
 
-    if (pedidoEncontrado){
-      this.roupas = pedidoEncontrado.roupas;
-      this.orcamento = pedidoEncontrado.orcamento;
-      this.prazo = pedidoEncontrado.prazo;
-      this.estado = pedidoEncontrado.estado;
-      this.numeroPedido = pedidoEncontrado.numeroPedido;
+  buscarPedido() {
+    this.http.get<any>(`http://localhost:3333/pedidos/${this.id}`).subscribe(
+      (pedidoEncontrado) => {
+        this.roupas = pedidoEncontrado.roupas;
+        this.orcamento = pedidoEncontrado.orcamento;
+        this.prazo = pedidoEncontrado.prazo;
+        this.estado = pedidoEncontrado.estado;
+        this.idPedido = pedidoEncontrado.id; // Use idPedido para armazenar o id do pedido
 
-      this.naoEncontrado = false;
-      this.exibirPedido = true;
-      
-
-    } 
-    else {
-      //pedido nao encontrado
-      this.exibirPedido = false;
-      this.naoEncontrado = true;
-
-     }
-    }
-
+        this.naoEncontrado = false;
+        this.exibirPedido = true;
+      },
+      (error) => {
+        // Pedido não encontrado
+        this.exibirPedido = false;
+        this.naoEncontrado = true;
+      }
+    );
   }
-  
-
-
-
-
-
-
+}
 

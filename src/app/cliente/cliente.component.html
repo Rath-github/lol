@@ -1,65 +1,29 @@
 <div class="container">
-  <div class="d-flex justify-content-center align-items-center" style="margin-top:2%;">
+  <div class="text-center mt-4">
     <h2 class="display-3">Cliente</h2>
   </div>
 
-  <div class="row">
-    <div class="col-lg-4">
-      <h3 class="d-flex justify-content-center align-items-center">Pedidos em Aberto:</h3>
-      <table class="table">
-      
-      <thead>
-        <tr class="border p-4">
-          <th class="bg-secondary text-light">Número</th>
-          <th class="bg-secondary text-light">Roupas</th>
-          <th class="bg-secondary text-light">Estado</th>
-        </tr>
-      </thead>
-      <tbody>
-      
-        <tr *ngFor="let pedido of pedidos">
-          <th>{{ pedido.numeroPedido }}</th>
-          <th>{{ pedido.roupas }}</th>
-          <th>{{ pedido.estado}}</th>
-      </tr>
-    </table>  
-    <div *ngIf="valores">
-      <h3 class="d-flex justify-content-center align-items-center">Valores:</h3>
-        <table class="table col-lg-12 border p-4">
-          <thead>
-            <tr>
-              <td class="bg-secondary text-light">Peça</td>
-              <td class="bg-secondary text-light">Prazo</td>
-              <td class="bg-secondary text-light">Valor</td>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let roupa of pecas">
-              <td>{{roupa.nome}}</td>
-              <td>{{roupa.prazo}} Dias</td>
-              <td>{{roupa.preco}},00 R$</td>
-            </tr>
-          </tbody>
-        </table>
+  <div class="row mt-4">
+    <div class="col-lg-12">
+      <div class="text-center mb-4">
+        <button (click)="alternarValor()" class="btn btn-success consulta">Consultar Valores</button>
+      </div>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Número</th>
+            <th>Roupas</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let pedido of pedidos">
+            <td>{{ pedido.id }}</td>
+            <td>{{ pedido.roupas }}</td>
+            <td>{{ pedido.estado }}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
-
-  <div class="col-lg-4 d-flex justify-content-center align-items-center">
-    <div>   
-      <button (click)="alternarValor()" class="btn btn-success border-dark-4 shadow">Consultar Valores</button>
-    </div>
-    
-  </div>
-    
-    <div class="col-lg-4 d-flex justify-content-center align-items-center">
-   
-      <div >
-          <img src="assets/img/maquina.png" width="200" height="300" alt="">
-      </div> 
-      
-      
-    </div>
-      
-  </div>
-
 </div>

@@ -1,19 +1,240 @@
 {
-  "posts": [
+  "pedidos": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "id": "1",
+      "roupas": "camiseta",
+      "orcamento": 50,
+      "estado": "EM ABERTO",
+      "prazo": 2,
+      "clienteId": 1
+    },
+    {
+      "id": "2",
+      "roupas": "calça",
+      "orcamento": 100,
+      "estado": "EM ABERTO",
+      "prazo": 3,
+      "clienteId": 1
+    },
+    {
+      "id": "3",
+      "roupas": "vestido",
+      "orcamento": 150,
+      "estado": "PRONTO",
+      "prazo": 0,
+      "clienteId": 1
+    },
+    {
+      "id": "4",
+      "roupas": "camisa",
+      "orcamento": 60,
+      "estado": "REJEITADO",
+      "prazo": 0,
+      "clienteId": 1
+    },
+    {
+      "id": "5",
+      "roupas": "calça",
+      "orcamento": 90,
+      "estado": "CANCELADO",
+      "prazo": 0,
+      "clienteId": 1
+    },
+    {
+      "id": "6",
+      "roupas": "meia",
+      "orcamento": 10,
+      "estado": "RECOLHIDO",
+      "prazo": 0,
+      "clienteId": 1
+    },
+    {
+      "id": "7",
+      "roupas": "cueca",
+      "orcamento": 12,
+      "estado": "RECOLHIDO",
+      "prazo": 0,
+      "clienteId": 1
+    },
+    {
+      "id": "8",
+      "roupas": "camiseta",
+      "orcamento": 48,
+      "estado": "FINALIZADO",
+      "prazo": 0,
+      "clienteId": 1
+    },
+    {
+      "id": "9",
+      "roupas": "vestido",
+      "orcamento": 140,
+      "estado": "FINALIZADO",
+      "prazo": 0,
+      "clienteId": 1
+    },
+    {
+      "id": "10",
+      "roupas": "camiseta",
+      "orcamento": 45,
+      "estado": "EM ABERTO",
+      "prazo": 2,
+      "clienteId": 2
+    },
+    {
+      "id": "11",
+      "roupas": "calça",
+      "orcamento": 95,
+      "estado": "AGUARDANDO PAGAMENTO",
+      "prazo": 0,
+      "clienteId": 2
+    },
+    {
+      "id": "12",
+      "roupas": "meia",
+      "orcamento": 9,
+      "estado": "AGUARDANDO PAGAMENTO",
+      "prazo": 0,
+      "clienteId": 2
+    },
+    {
+      "id": "13",
+      "roupas": "camiseta",
+      "orcamento": 45,
+      "estado": "PAGO",
+      "prazo": 0,
+      "clienteId": 2
+    },
+    {
+      "id": "14",
+      "roupas": "vestido",
+      "orcamento": 135,
+      "estado": "FINALIZADO",
+      "prazo": 0,
+      "clienteId": 2
+    },
+    {
+      "id": "15",
+      "roupas": "vestido",
+      "orcamento": 150,
+      "estado": "AGUARDANDO PAGAMENTO",
+      "prazo": 0,
+      "clienteId": 3
+    },
+    {
+      "id": "16",
+      "roupas": "calça",
+      "orcamento": 100,
+      "estado": "AGUARDANDO PAGAMENTO",
+      "prazo": 0,
+      "clienteId": 3
+    },
+    {
+      "id": "17",
+      "roupas": "camiseta",
+      "orcamento": 48,
+      "estado": "PAGO",
+      "prazo": 0,
+      "clienteId": 3
+    },
+    {
+      "id": "18",
+      "roupas": "camisa",
+      "orcamento": 60,
+      "estado": "RECOLHIDO",
+      "prazo": 0,
+      "clienteId": 4
+    },
+    {
+      "id": "19",
+      "roupas": "calça",
+      "orcamento": 100,
+      "estado": "PAGO",
+      "prazo": 0,
+      "clienteId": 4
+    },
+    {
+      "id": "20",
+      "roupas": "meia",
+      "orcamento": 8,
+      "estado": "PAGO",
+      "prazo": 0,
+      "clienteId": 4
+    },
+    {
+      "id": "21",
+      "roupas": "cueca",
+      "orcamento": 12,
+      "estado": "AGUARDANDO PAGAMENTO",
+      "prazo": 0,
+      "clienteId": 4
+    },
+    {
+      "id": "22",
+      "roupas": "vestido",
+      "orcamento": 145,
+      "estado": "FINALIZADO",
+      "prazo": 0,
+      "clienteId": 4
     }
   ],
-  "comments": [
+  "pecas": [
     {
       "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "nome": "calca",
+      "preco": 100,
+      "estoque": 3
+    },
+    {
+      "id": 2,
+      "nome": "camisa",
+      "preco": 50,
+      "estoque": 2
+    },
+    {
+      "id": 3,
+      "nome": "camiseta",
+      "preco": 50,
+      "estoque": 2
+    },
+    {
+      "id": 4,
+      "nome": "meia",
+      "preco": 5,
+      "estoque": 10
+    },
+    {
+      "id": 5,
+      "nome": "cueca",
+      "preco": 8,
+      "estoque": 8
     }
   ],
-  "profile": {
-    "name": "typicode"
-  }
+  "Clientes": [
+    {
+      "id": 1,
+      "nome": "João"
+    },
+    {
+      "id": 2,
+      "nome": "José"
+    },
+    {
+      "id": 3,
+      "nome": "Joana"
+    },
+    {
+      "id": 4,
+      "nome": "Joaquina"
+    }
+  ],
+  "Funcionarios": [
+    {
+      "id": 1,
+      "nome": "Maria"
+    },
+    {
+      "id": 2,
+      "nome": "Mário"
+    }
+  ]
 }

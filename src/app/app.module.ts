@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { EstadosService } from './services';
+import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
@@ -67,8 +68,8 @@ import { RelatorioClientesComponent } from './relatorio-clientes/relatorio-clien
     AppRoutingModule,
     CommonModule,
     FormsModule,
-    NgbModule
-
+    NgbModule,
+    HttpClientModule
     
   ],
 
