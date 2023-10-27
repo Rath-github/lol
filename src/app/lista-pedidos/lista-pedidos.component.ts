@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { EstadosService } from '../services';
 
 @Component({
@@ -7,24 +8,21 @@ import { EstadosService } from '../services';
   styleUrls: ['./lista-pedidos.component.css']
 })
 export class ListaPedidosComponent implements OnInit {
-
-  pedidos: any[] = [
-    { numero: '123', estado: 'EM ABERTO', data: new Date() },
-    { numero: '124', estado: 'REJEITADO', data: new Date() },
-    { numero: '125', estado: 'APROVADO', data: new Date() }
-  ];
-
+  pedidos: any[] = [];
   estadoFiltro: string = '';
-  
-
-  constructor(private estados: EstadosService) { }
-
   tipoUsuario: string = '';
 
-  ngOnInit(): void {
-    this.estados.acessoLogin$.subscribe((tipo) =>{
-      this.tipoUsuario = tipo;})
+  constructor(private estados: EstadosService, private http: HttpClient) { }
 
+  ngOnInit(): void {
+    this.estados.acessoLogin$.subscribe((tipo) => {
+      this.tipoUsuario = tipo;
+    });
+
+    // Carregar a lista de pedidos do servidor JSON-Server
+    this.http.get<any[]>('http://localhost:3333/pedidos').subscribe((pedidos) => {
+      this.pedidos = pedidos;
+    });
   }
 
   filtrarPorEstado(): any[] {
@@ -40,15 +38,22 @@ export class ListaPedidosComponent implements OnInit {
   }
 
   cancelarPedido(numeroPedido: string): void {
-    // Implemente a lógica para cancelar o pedido aqui
-    // Por enquanto, apenas marcamos o pedido como 'CANCELADO'
+    // Implemente a lógica para cancelar o pedido no servidor aqui
+    // Por enquanto, apenas marcamos o pedido como 'CANCELADO' localmente
     const pedido = this.pedidos.find(p => p.numero === numeroPedido);
     if (pedido) {
       pedido.estado = 'CANCELADO';
+
+      // Atualize o pedido no servidor JSON-Server
+      this.http.put(`http://localhost:3333/pedidos/${pedido.id}`, pedido).subscribe(() => {
+        console.log(`Pedido ${numeroPedido} foi cancelado no servidor.`);
+      });
     }
   }
 
   pagarPedido(numeroPedido: string): void {
+    // Implemente a lógica para pagar o pedido no servidor aqui
+    // Por enquanto, apenas exibimos um alerta
     alert(`Pedido ${numeroPedido} pago com sucesso!`);
   }
 }

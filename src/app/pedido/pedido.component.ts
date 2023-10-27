@@ -24,7 +24,7 @@ export class PedidoComponent implements OnInit {
 
   pedidoAprovado: boolean = false;
   pedidoRejeitado: boolean = false;
-  numeroPedido: string = '';
+  id: string = '';
 
   roupasDisponiveis: Roupa[] = [];
 
@@ -92,9 +92,20 @@ export class PedidoComponent implements OnInit {
     this.pedido.pedidoMes = this.dataAtual.getMonth() + 1;
     this.pedido.pedidoAno = this.dataAtual.getFullYear();
 
-    window.alert('O seu pedido foi efetuado!');
-  }
+    // Enviar o pedido para o servidor JSON-Server
+    this.http.post('http://localhost:3333/pedidos', this.pedido).subscribe((response) => {
+      // Limpar os campos do pedido após o envio
+      this.pedido = new Pedido();
+      this.roupaSelecionada = '';
+      this.quantidade = 0;
+      this.roupaPrazo = 0;
+      this.roupaPreco = 0;
+      this.prazoTotal = 0;
+      this.orcamento = 0;
 
+      window.alert('O seu pedido foi efetuado!');
+    });
+  }
   rejeitarPedido() {
     this.pedido.pedidoNum = 0;
     this.pedido.pedidoCliente = '';

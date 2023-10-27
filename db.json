@@ -4,7 +4,7 @@
       "id": "1",
       "roupas": "camiseta",
       "orcamento": 50,
-      "estado": "EM ABERTO",
+      "estado": "CANCELADO",
       "prazo": 2,
       "clienteId": 1
     },
@@ -175,6 +175,73 @@
       "estado": "FINALIZADO",
       "prazo": 0,
       "clienteId": 4
+    },
+    {
+      "pedidoNum": 0,
+      "pedidoCliente": "",
+      "pedidoRoupas": [
+        {
+          "tipo": "camisa",
+          "quantidade": 20,
+          "preco": 50
+        }
+      ],
+      "pedidoOrcamento": 0,
+      "pedidoPrazo": null,
+      "pedidoHora": 0,
+      "pedidoDia": 27,
+      "pedidoMes": 10,
+      "pedidoAno": 2023,
+      "pedidoEstado": "EM ABERTO",
+      "id": "Hbv4EqM"
+    },
+    {
+      "pedidoNum": 0,
+      "pedidoCliente": "",
+      "pedidoRoupas": [
+        {
+          "tipo": "camisa",
+          "quantidade": 20,
+          "preco": 50
+        },
+        {
+          "tipo": "calca",
+          "quantidade": 20,
+          "preco": 100
+        },
+        {
+          "tipo": "meia",
+          "quantidade": 20,
+          "preco": 5
+        }
+      ],
+      "pedidoOrcamento": 0,
+      "pedidoPrazo": null,
+      "pedidoHora": 0,
+      "pedidoDia": 27,
+      "pedidoMes": 10,
+      "pedidoAno": 2023,
+      "pedidoEstado": "EM ABERTO",
+      "id": "Kcy6mPJ"
+    },
+    {
+      "pedidoNum": 0,
+      "pedidoCliente": "",
+      "pedidoRoupas": [
+        {
+          "tipo": "camiseta",
+          "quantidade": 20,
+          "preco": 50
+        }
+      ],
+      "pedidoOrcamento": 0,
+      "pedidoPrazo": null,
+      "pedidoHora": 0,
+      "pedidoDia": 27,
+      "pedidoMes": 10,
+      "pedidoAno": 2023,
+      "pedidoEstado": "EM ABERTO",
+      "id": "5QvaLQs"
     }
   ],
   "pecas": [
@@ -182,31 +249,31 @@
       "id": 1,
       "nome": "calca",
       "preco": 100,
-      "estoque": 3
+      "tempo": 3
     },
     {
       "id": 2,
       "nome": "camisa",
       "preco": 50,
-      "estoque": 2
+      "tempo": 2
     },
     {
       "id": 3,
       "nome": "camiseta",
       "preco": 50,
-      "estoque": 2
+      "tempo": 2
     },
     {
       "id": 4,
       "nome": "meia",
       "preco": 5,
-      "estoque": 10
+      "tempo": 10
     },
     {
       "id": 5,
       "nome": "cueca",
       "preco": 8,
-      "estoque": 8
+      "tempo": 8
     }
   ],
   "Clientes": [
