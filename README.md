@@ -1,5 +1,7 @@
 # Lol
 
+O Lavanderia Online é um sistema web para gerenciamento de serviços de uma lavanderia, permitindo que os clientes solicitem e acompanhem o andamento de serviços de lavagem e passadoria de forma online.
+
 | Inicar o Servidor | Inicar o Json-Server |
 | ----------------- | -------------------- |
 | `ng server`       | `npm run db`         |
