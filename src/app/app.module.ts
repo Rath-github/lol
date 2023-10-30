@@ -8,7 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
-
+import { NgxMaskModule } from 'ngx-mask';
 
 
 import { LoginComponent } from './login/login.component';
@@ -69,7 +69,8 @@ import { RelatorioClientesComponent } from './relatorio-clientes/relatorio-clien
     CommonModule,
     FormsModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxMaskModule.forRoot()
     
   ],
 

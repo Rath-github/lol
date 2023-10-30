@@ -27,6 +27,7 @@ export class PedidoComponent implements OnInit {
   id: string = '';
 
   roupasDisponiveis: Roupa[] = [];
+  
 
   ngOnInit(): void {
     // Carregar as roupas disponíveis do servidor JSON-Server
