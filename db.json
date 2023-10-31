@@ -279,7 +279,12 @@
   "Clientes": [
     {
       "id": 1,
-      "nome": "João"
+      "cpf": "123.456.789-00",
+      "nome": "João",
+      "email": "joao@gmail.com",
+      "endereco": "Rua A, 123",
+      "telefone": "(11) 1234-5678",
+      "senha": "1234"
     },
     {
       "id": 2,
@@ -306,7 +311,11 @@
   "Funcionarios": [
     {
       "id": 1,
-      "nome": "Maria"
+      "nome": "Maria",
+      "email": "maria@gmail.com",
+      "endereco": " Rua C, 789",
+      "telefone": "10121116",
+      "senha": "1234"
     },
     {
       "id": 2,
