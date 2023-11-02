@@ -12,15 +12,17 @@
         <thead>
           <tr>
             <th>Número</th>
-            <th>Roupas</th>
+            <th>Data</th>
+            <th>Prazo</th>
             <th>Estado</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let pedido of pedidos">
-            <td>{{ pedido.id }}</td>
-            <td>{{ pedido.roupas }}</td>
-            <td>{{ pedido.estado }}</td>
+            <td>{{ pedido.pedidoNum }}</td>
+            <td>{{ pedido.pedidoDia}}/{{pedido.pedidoMes}}/{{pedido.pedidoAno}}</td>
+            <td>{{ pedido.pedidoPrazo}} dias</td>
+            <td>{{ pedido.pedidoEstado }}</td>
           </tr>
         </tbody>
       </table>
