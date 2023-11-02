@@ -36,7 +36,7 @@
       <tr *ngFor="let roupa of pedido.pedidoRoupas; let i = index">
         <td>{{roupa.tipo}}</td>
         <td>{{roupa.quantidade}} peças</td>
-        <td>{{roupa.prazo}} dias</td>
+        <td>{{roupa.tempo}} dias</td>
         <td>{{roupa.preco}},00 R$</td>
         <td>
           <button class="btn btn-danger" (click)="excluirItem(i)">Excluir</button>

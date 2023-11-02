@@ -1,247 +1,30 @@
 {
   "pedidos": [
     {
-      "id": "1",
-      "roupas": "camiseta",
-      "orcamento": 50,
-      "estado": "CANCELADO",
-      "prazo": 2,
-      "clienteId": 1
-    },
-    {
-      "id": "2",
-      "roupas": "calça",
-      "orcamento": 100,
-      "estado": "EM ABERTO",
-      "prazo": 3,
-      "clienteId": 1
-    },
-    {
-      "id": "3",
-      "roupas": "vestido",
-      "orcamento": 150,
-      "estado": "PRONTO",
-      "prazo": 0,
-      "clienteId": 1
-    },
-    {
-      "id": "4",
-      "roupas": "camisa",
-      "orcamento": 60,
-      "estado": "REJEITADO",
-      "prazo": 0,
-      "clienteId": 1
-    },
-    {
-      "id": "5",
-      "roupas": "calça",
-      "orcamento": 90,
-      "estado": "CANCELADO",
-      "prazo": 0,
-      "clienteId": 1
-    },
-    {
-      "id": "6",
-      "roupas": "meia",
-      "orcamento": 10,
-      "estado": "RECOLHIDO",
-      "prazo": 0,
-      "clienteId": 1
-    },
-    {
-      "id": "7",
-      "roupas": "cueca",
-      "orcamento": 12,
-      "estado": "RECOLHIDO",
-      "prazo": 0,
-      "clienteId": 1
-    },
-    {
-      "id": "8",
-      "roupas": "camiseta",
-      "orcamento": 48,
-      "estado": "FINALIZADO",
-      "prazo": 0,
-      "clienteId": 1
-    },
-    {
-      "id": "9",
-      "roupas": "vestido",
-      "orcamento": 140,
-      "estado": "FINALIZADO",
-      "prazo": 0,
-      "clienteId": 1
-    },
-    {
-      "id": "10",
-      "roupas": "camiseta",
-      "orcamento": 45,
-      "estado": "EM ABERTO",
-      "prazo": 2,
-      "clienteId": 2
-    },
-    {
-      "id": "11",
-      "roupas": "calça",
-      "orcamento": 95,
-      "estado": "AGUARDANDO PAGAMENTO",
-      "prazo": 0,
-      "clienteId": 2
-    },
-    {
-      "id": "12",
-      "roupas": "meia",
-      "orcamento": 9,
-      "estado": "AGUARDANDO PAGAMENTO",
-      "prazo": 0,
-      "clienteId": 2
-    },
-    {
-      "id": "13",
-      "roupas": "camiseta",
-      "orcamento": 45,
-      "estado": "PAGO",
-      "prazo": 0,
-      "clienteId": 2
-    },
-    {
-      "id": "14",
-      "roupas": "vestido",
-      "orcamento": 135,
-      "estado": "FINALIZADO",
-      "prazo": 0,
-      "clienteId": 2
-    },
-    {
-      "id": "15",
-      "roupas": "vestido",
-      "orcamento": 150,
-      "estado": "AGUARDANDO PAGAMENTO",
-      "prazo": 0,
-      "clienteId": 3
-    },
-    {
-      "id": "16",
-      "roupas": "calça",
-      "orcamento": 100,
-      "estado": "AGUARDANDO PAGAMENTO",
-      "prazo": 0,
-      "clienteId": 3
-    },
-    {
-      "id": "17",
-      "roupas": "camiseta",
-      "orcamento": 48,
-      "estado": "PAGO",
-      "prazo": 0,
-      "clienteId": 3
-    },
-    {
-      "id": "18",
-      "roupas": "camisa",
-      "orcamento": 60,
-      "estado": "RECOLHIDO",
-      "prazo": 0,
-      "clienteId": 4
-    },
-    {
-      "id": "19",
-      "roupas": "calça",
-      "orcamento": 100,
-      "estado": "PAGO",
-      "prazo": 0,
-      "clienteId": 4
-    },
-    {
-      "id": "20",
-      "roupas": "meia",
-      "orcamento": 8,
-      "estado": "PAGO",
-      "prazo": 0,
-      "clienteId": 4
-    },
-    {
-      "id": "21",
-      "roupas": "cueca",
-      "orcamento": 12,
-      "estado": "AGUARDANDO PAGAMENTO",
-      "prazo": 0,
-      "clienteId": 4
-    },
-    {
-      "id": "22",
-      "roupas": "vestido",
-      "orcamento": 145,
-      "estado": "FINALIZADO",
-      "prazo": 0,
-      "clienteId": 4
-    },
-    {
-      "pedidoNum": 0,
-      "pedidoCliente": "",
+      "pedidoNum": 5,
+      "pedidoCliente": "joao@gmail.com",
       "pedidoRoupas": [
-        {
-          "tipo": "camisa",
-          "quantidade": 20,
-          "preco": 50
-        }
-      ],
-      "pedidoOrcamento": 0,
-      "pedidoPrazo": null,
-      "pedidoHora": 0,
-      "pedidoDia": 27,
-      "pedidoMes": 10,
-      "pedidoAno": 2023,
-      "pedidoEstado": "EM ABERTO",
-      "id": "Hbv4EqM"
-    },
-    {
-      "pedidoNum": 0,
-      "pedidoCliente": "",
-      "pedidoRoupas": [
-        {
-          "tipo": "camisa",
-          "quantidade": 20,
-          "preco": 50
-        },
         {
           "tipo": "calca",
-          "quantidade": 20,
+          "quantidade": 50,
+          "tempo": 3,
           "preco": 100
         },
         {
           "tipo": "meia",
-          "quantidade": 20,
+          "quantidade": 51,
+          "tempo": 10,
           "preco": 5
         }
       ],
-      "pedidoOrcamento": 0,
-      "pedidoPrazo": null,
-      "pedidoHora": 0,
-      "pedidoDia": 27,
-      "pedidoMes": 10,
+      "pedidoOrcamento": 105,
+      "pedidoPrazo": 10,
+      "pedidoHora": 14,
+      "pedidoDia": 2,
+      "pedidoMes": 11,
       "pedidoAno": 2023,
       "pedidoEstado": "EM ABERTO",
-      "id": "Kcy6mPJ"
-    },
-    {
-      "pedidoNum": 0,
-      "pedidoCliente": "",
-      "pedidoRoupas": [
-        {
-          "tipo": "camiseta",
-          "quantidade": 20,
-          "preco": 50
-        }
-      ],
-      "pedidoOrcamento": 0,
-      "pedidoPrazo": null,
-      "pedidoHora": 0,
-      "pedidoDia": 27,
-      "pedidoMes": 10,
-      "pedidoAno": 2023,
-      "pedidoEstado": "EM ABERTO",
-      "id": "5QvaLQs"
+      "id": "kCgwRpe"
     }
   ],
   "pecas": [
@@ -285,18 +68,6 @@
       "endereco": "Rua A, 123",
       "telefone": "(11) 1234-5678",
       "senha": "1234"
-    },
-    {
-      "id": 2,
-      "nome": "José"
-    },
-    {
-      "id": 3,
-      "nome": "Joana"
-    },
-    {
-      "id": 4,
-      "nome": "Joaquina"
     },
     {
       "cpf": "10953861902",
@@ -343,10 +114,6 @@
       "endereco": " Rua C, 789",
       "telefone": "10121116",
       "senha": "1234"
-    },
-    {
-      "id": 2,
-      "nome": "Mário"
     }
   ]
 }
