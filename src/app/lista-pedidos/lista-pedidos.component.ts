@@ -10,18 +10,25 @@ import { EstadosService } from '../services';
 export class ListaPedidosComponent implements OnInit {
   pedidos: any[] = [];
   estadoFiltro: string = '';
+  usuario: string = '';
   tipoUsuario: string = '';
 
   constructor(private estados: EstadosService, private http: HttpClient) { }
 
   ngOnInit(): void {
     this.estados.acessoLogin$.subscribe((tipo) => {
-      this.tipoUsuario = tipo;
-    });
+      this.tipoUsuario = tipo; 
+    }),
+    this.estados.userEmail$.subscribe((userEmail) =>{
+      this.usuario = userEmail;
+    }
+    );
 
     // Carregar a lista de pedidos do servidor JSON-Server
     this.http.get<any[]>('http://localhost:3333/pedidos').subscribe((pedidos) => {
-      this.pedidos = pedidos;
+      if (pedidos && this.usuario) {
+        this.pedidos = pedidos.filter((pedido) => pedido.pedidoCliente === this.usuario);
+      }
     });
   }
 
@@ -29,7 +36,7 @@ export class ListaPedidosComponent implements OnInit {
     if (this.estadoFiltro === '') {
       return this.pedidos;
     } else {
-      return this.pedidos.filter(pedido => pedido.estado === this.estadoFiltro);
+      return this.pedidos.filter(pedido => pedido.pedidoEstado === this.estadoFiltro);
     }
   }
 

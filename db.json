@@ -23,8 +23,34 @@
       "pedidoDia": 2,
       "pedidoMes": 11,
       "pedidoAno": 2023,
-      "pedidoEstado": "EM ABERTO",
+      "pedidoEstado": "RECOLHIDO",
       "id": "kCgwRpe"
+    },
+    {
+      "pedidoNum": 6,
+      "pedidoCliente": "joao@gmail.com",
+      "pedidoRoupas": [
+        {
+          "tipo": "calca",
+          "quantidade": 3,
+          "tempo": 3,
+          "preco": 100
+        },
+        {
+          "tipo": "camisa",
+          "quantidade": 3,
+          "tempo": 2,
+          "preco": 50
+        }
+      ],
+      "pedidoOrcamento": 150,
+      "pedidoPrazo": 3,
+      "pedidoHora": 15,
+      "pedidoDia": 2,
+      "pedidoMes": 11,
+      "pedidoAno": 2023,
+      "pedidoEstado": "EM ABERTO",
+      "id": "dH_y_lV"
     }
   ],
   "pecas": [
@@ -104,6 +130,15 @@
       "telefone": "33333333333",
       "senha": "3923",
       "id": 8
+    },
+    {
+      "cpf": "11111111111",
+      "nome": "jose",
+      "email": "uuuuuuuuuu@ghhh",
+      "endereco": "jjjjjjjjjjj",
+      "telefone": "33333333333",
+      "senha": "3100",
+      "id": 9
     }
   ],
   "Funcionarios": [
