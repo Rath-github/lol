@@ -1,41 +1,40 @@
 import { Component } from '@angular/core';
-import { Usuario } from '../shared/models';
-import { AutocadastroService } from '../services/autocadastro/autocadastro.service';
-import { Observer } from 'rxjs';
+
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-autocadastro',
   templateUrl: './autocadastro.component.html',
-  styleUrls: ['./autocadastro.component.css']
+  styleUrls: ['./autocadastro.component.css'],
 })
 export class AutocadastroComponent {
-  id: string = '';
-  cpf: string = '';
-  nome: string = '';
-  email: string = '';
-  endereco: string = '';
-  telefone: string = '';
-  senha: string ='';
-  novoUsuario: Usuario = new Usuario(this.id,this.cpf,this.nome, this.email, this.endereco, this.telefone,this.senha);
 
+  constructor(private http: HttpClient) {}
 
-  usuario: Usuario = new Usuario(this.id,this.cpf,this.nome, this.email, this.endereco, this.telefone,this.senha);
+  onSubmit(form: any): void {
+    // Realizar a geração da senha aleatória de 4 dígitos
+    const senhaAleatoria = Math.floor(1000 + Math.random() * 9000).toString();
 
-  constructor(private autocadastroService: AutocadastroService) {}
-  
+    // Coletar os dados do usuário
+    const userData = {
+      cpf: form.cpf,
+      nome: form.nome,
+      email: form.email,
+      endereco: form.endereco,
+      telefone: form.telefone,
+      senha: senhaAleatoria, // Adiciona a senha aleatória aos dados do usuário
+    };
 
-  onSubmit() {
-    
+    // Enviar os dados para o servidor via HTTP POST
+    this.http.post('http://localhost:3333/Clientes', userData).subscribe(
+      (response) => {
+        // O usuário foi cadastrado com sucesso, e você pode lidar com a resposta aqui.
+        console.log('Sucesso ao cadastrar usuário:', response);
+      },
+      (error) => {
+        console.error('Erro ao cadastrar usuário:', error);
+      }
+    );
 
-    this.usuario = new Usuario (this.id,this.cpf,this.nome, this.email, this.endereco, this.telefone,this.senha);
-
-    this.autocadastroService.cadastrarUsuario(this.usuario).subscribe(response => {
-          console.log('Usuário cadastrado com sucesso!', response);
-          // Limpar campos ou redirecionar, se necessário
-        },
-        error => {
-          console.error('Erro ao cadastrar o usuário.', error);
-        }
-      );
   }
 }

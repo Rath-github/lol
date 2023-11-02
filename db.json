@@ -279,7 +279,12 @@
   "Clientes": [
     {
       "id": 1,
-      "nome": "João"
+      "cpf": "123.456.789-00",
+      "nome": "João",
+      "email": "joao@gmail.com",
+      "endereco": "Rua A, 123",
+      "telefone": "(11) 1234-5678",
+      "senha": "1234"
     },
     {
       "id": 2,
@@ -292,12 +297,52 @@
     {
       "id": 4,
       "nome": "Joaquina"
+    },
+    {
+      "cpf": "10953861902",
+      "nome": "Thiago",
+      "email": "thiagodossantos315@gmail.com",
+      "endereco": "Rua Arno",
+      "telefone": "997848601",
+      "senha": "6009",
+      "id": 5
+    },
+    {
+      "cpf": "11111111111",
+      "nome": "iiiiiiiiiiiiiiiiiiii",
+      "email": "kkkkkkkkkkkkk",
+      "endereco": "ooooooooooooooooo",
+      "telefone": "11111111111",
+      "senha": "3103",
+      "id": 6
+    },
+    {
+      "cpf": "10000088888",
+      "nome": "ooooooopppppppppp",
+      "email": "jjjjjjjjjjjjjjjjjjjj",
+      "endereco": "opllllllllllllllll",
+      "telefone": "22222222222",
+      "senha": "9104",
+      "id": 7
+    },
+    {
+      "cpf": "23333333333",
+      "nome": "oooooooooooookkkkkk",
+      "email": "iiiiiiiiiiigggggggggg",
+      "endereco": "iiiiiiiiiiidddddddddd3333",
+      "telefone": "33333333333",
+      "senha": "3923",
+      "id": 8
     }
   ],
   "Funcionarios": [
     {
       "id": 1,
-      "nome": "Maria"
+      "nome": "Maria",
+      "email": "maria@gmail.com",
+      "endereco": " Rua C, 789",
+      "telefone": "10121116",
+      "senha": "1234"
     },
     {
       "id": 2,

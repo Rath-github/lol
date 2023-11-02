@@ -11,12 +11,12 @@ import { Usuario } from 'src/app/shared/models';
 })
 export class AutocadastroService {
  
-    private url = 'https://localhost:8080/autocadastro/criar'; // Precisa mudar para a URL do do backend
+    private url = 'https://localhost:3333/cliente'; // Precisa mudar para a URL do do backend
   
     constructor(private http: HttpClient) {}
   
     cadastrarUsuario(usuario: Usuario): Observable<any> {
-      return this.http.post<any>(`${this.url}/autocadastro/criar`, usuario);
+      return this.http.post<any>(`${this.url}/cliente`, usuario);
     }
 }
 

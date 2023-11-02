@@ -1,36 +1,79 @@
 <div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <h2 class="text-center">Autocadastro</h2>
-            <div class="alert alert-danger d-none" id="error-message">
-                Preencha todos os campos corretamente antes de prosseguir.
-            </div>
-            <form  (ngSubmit)="onSubmit()">
-                <div class="mb-3">
-                    <label for="cpf" class="form-label">CPF:</label>
-                    <input type="text" id="cpf" name="cpf" class="form-control" [mask]="'000.000.000-00'" [(ngModel)]="cpf" required>
-                </div>
-                <div class="mb-3">
-                    <label for="nome" class="form-label">Nome:</label>
-                    <input type="text" id="nome" name="nome" maxlength="35" class="form-control" [(ngModel)]="nome" required>
-                </div>
-                <div class="mb-3">
-                    <label for="email" class="form-label">E-mail:</label>
-                    <input type="email" id="email" name="email" maxlength="35" class="form-control" [(ngModel)]="email" required>
-                </div>
-                <div class="mb-3">
-                    <label for="endereco" class="form-label">Endereço:</label>
-                    <input type="text" id="endereco" name="endereco" maxlength="60" class="form-control" [(ngModel)]="endereco" required>
-                </div>
-                <div class="mb-3">
-                    <label for="telefone" class="form-label">Telefone:</label>
-                    <input type="text" id="telefone" name="telefone" class="form-control" [mask]="'(00) 00000-000?9'" [(ngModel)]="telefone" required>
-                </div>
-                <div class="mb-3 text-center">
-                    <button type="submit" class="btn btn-primary">Cadastrar</button>
-                    <a href="/login" class="btn btn-link">Voltar para o Login</a>
-                </div>
-            </form>
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <h2 class="text-center">Autocadastro</h2>
+      <div class="alert alert-danger d-none" id="error-message">
+        Preencha todos os campos corretamente antes de prosseguir.
+      </div>
+      <form
+        #autocadastroForm="ngForm"
+        (ngSubmit)="onSubmit(autocadastroForm.value)"
+      >
+        <div class="mb-3">
+          <label for="cpf" class="form-label">CPF:</label>
+          <input
+            type="text"
+            id="cpf"
+            name="cpf"
+            class="form-control"
+            [mask]="'000.000.000-00'"
+            required
+            ngModel
+          />
         </div>
+        <div class="mb-3">
+          <label for="nome" class="form-label">Nome:</label>
+          <input
+            type="text"
+            id="nome"
+            name="nome"
+            class="form-control"
+            maxlength="35"
+            required
+            ngModel
+          />
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">E-mail:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="form-control"
+            maxlength="35"
+            required
+            ngModel
+          />
+        </div>
+        <div class="mb-3">
+          <label for="endereco" class="form-label">Endereço:</label>
+          <input
+            type="text"
+            id="endereco"
+            name="endereco"
+            class="form-control"
+            maxlength="60"
+            required
+            ngModel
+          />
+        </div>
+        <div class="mb-3">
+          <label for="telefone" class="form-label">Telefone:</label>
+          <input
+            type="text"
+            id="telefone"
+            name="telefone"
+            class="form-control"
+            [mask]="'(00) 00000-000?9'"
+            required
+            ngModel
+          />
+        </div>
+        <div class="mb-3 text-center">
+          <button type="submit" class="btn btn-primary">Cadastrar</button>
+          <a href="/login" class="btn btn-link">Voltar para o Login</a>
+        </div>
+      </form>
     </div>
   </div>
+</div>

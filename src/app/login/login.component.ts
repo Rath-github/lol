@@ -1,100 +1,68 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 import { EstadosService } from '../services';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  usuario : string = '';
-  senha : string = '';
-  loginIncorreto : boolean = false;
-  acessoLogin : string = '';
+  usuario: string = '';
+  senha: string = '';
+  loginIncorreto: boolean = false;
+  usuarioEncontrado: any = [];
+
+  constructor(
+    private router: Router,
+    private estados: EstadosService,
+    private http: HttpClient
+  ) {}
+
+  ngOnInit(): void {}
+
+  login() {
+    this.http
+      .get<any[]>('http://localhost:3333/Clientes')
+      .subscribe((clientes) => {
+        this.http
+          .get<any[]>('http://localhost:3333/Funcionarios')
+          .subscribe((funcionarios) => {
+            const cliente = [...clientes];
+            const funcionario = [...funcionarios];
 
 
+              this.usuarioEncontrado = cliente.find(
+                (user) => user.email === this.usuario && user.senha === this.senha
+              );
 
-  constructor(private router: Router, private estados: EstadosService) {}
+                  if (this.usuarioEncontrado) {
+                    this.estados.alterarValor(true);
+                    this.estados.emailUsuario(this.usuarioEncontrado.email);
+                    this.estados.tipoUsuario('cliente');
+                    this.router.navigate(['/cliente']);
 
-  ngOnInit(): void {
+                  } else {
+                    this.loginIncorreto = true;
+                  }
 
-}
-usuarios : any[] = [
-  {
-    id: 1,
-    cpf : "123.456.789-00",
-    nome: "João",
-    email : "joao@gmail.com",
-    endereco : "Rua A, 123",
-    telefone : "(11) 1234-5678",
-    senha : "1234",
-    tipo : "cliente"
-  },
-  {
-    id : 2,
-    cpf : "987.654.321-00",
-    nome : "José",
-    email : "jose@gmail.com",
-    endereco : "Rua B, 456",
-    telefone : "(11) 9876-5432",
-    senha : "1234",
-    tipo : "cliente"
-  },
-  {
-    id : 3,
-    cpf : "101.213.141-51",
-    nome : "Joana",
-    email : "joana@gmail.com",
-    endereco : "Rua C, 789",
-    telefone : "(11) 1012-1130",
-    senha : "1234",
-    tipo : "cliente"
-  },
-  {
-    id : 1,
-    cpf : "111.222.333-44",
-    nome : "Maria",
-    email : "maria@gmail.com",
-    senha : "1234",
-    cargo : "Atendente",
-    tipo : "funcionario"
-  },
-  {
-    id : 2,
-    cpf : "222.333.444-55",
-    nome : "Mário",
-    email : "mario@gmail.com",
-    senha : "1234",
-    cargo : "Gerente",
-    tipo : "funcionario"
+
+              this.usuarioEncontrado = funcionario.find(
+                (user) => user.email === this.usuario && user.senha === this.senha
+              );
+
+
+                  if (this.usuarioEncontrado) {
+                    this.estados.alterarValor(true);
+                    this.estados.emailUsuario(this.usuarioEncontrado.email);
+                    this.estados.tipoUsuario('funcionario');
+                      this.router.navigate(['/funcionario']);
+
+                  } else {
+                    this.loginIncorreto = true;
+                  }
+          });
+      });
   }
-];
-
-
-login(){
-
-  const usuarioEncontrado = this.usuarios.find(
-    (user) => user.email === this.usuario && user.senha === this.senha
-  );
-
-  if (usuarioEncontrado) {
-
-      this.estados.alterarValor(true);
-      this.estados.emailUsuario(usuarioEncontrado.email);
-
-      if (usuarioEncontrado.tipo === 'cliente') {
-        this.estados.tipoUsuario('cliente');
-        this.router.navigate(['/cliente']);
-      }
-      else if (usuarioEncontrado.tipo === 'funcionario') {
-        this.estados.tipoUsuario('funcionario');
-        this.router.navigate(['/funcionario']);
-      }
- }
-
-  else{
-    this.loginIncorreto = true;
-  }
-}
 }
