@@ -11,6 +11,7 @@
       <option value="EM ABERTO">Em Aberto</option>
       <option value="APROVADO">Aprovado</option>
       <option value="REJEITADO">Rejeitado</option>
+      <option value="CANCELADO">Cancelado</option>
       <option value="RECOLHIDO">Recolhido</option>
       <option value="AGUARDANDO PAGAMENTO">Aguardando Pagamento</option>
       <option value="PAGO">Pago</option>
@@ -32,8 +33,8 @@
         <td>{{ pedido.pedidoEstado }}</td>
         <td>{{ pedido.pedidoDia}}/{{pedido.pedidoMes}}/{{pedido.pedidoAno}}</td>
         <td>
-          <button class="btn btn-primary" (click)="pagarPedido(pedido.pedidoNum)" *ngIf="tipoUsuario==='cliente'">Pagar</button>
-          <button class="btn btn-danger" (click)="cancelarPedido(pedido.pedidoNum)">Cancelar</button>
+          <button class="btn btn-primary" (click)="pagarPedido(pedido.id)" *ngIf="tipoUsuario==='cliente'">Pagar</button>
+          <button class="btn btn-danger" (click)="cancelarPedido(pedido.id)">Cancelar</button>
           <a [routerLink]="['/confirmar-pagamento', pedido.pedidoNum]" class="btn btn-info" *ngIf="tipoUsuario==='funcionario'">Confirmar Pagamento</a>
         </td>
       </tr>

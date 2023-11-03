@@ -19,12 +19,12 @@ export class ListaPedidosComponent implements OnInit {
     this.estados.acessoLogin$.subscribe((tipo) => {
       this.tipoUsuario = tipo; 
     }),
+
     this.estados.userEmail$.subscribe((userEmail) =>{
       this.usuario = userEmail;
     }
     );
-
-    // Carregar a lista de pedidos do servidor JSON-Server
+    
     this.http.get<any[]>('http://localhost:3333/pedidos').subscribe((pedidos) => {
       if (pedidos && this.usuario) {
         this.pedidos = pedidos.filter((pedido) => pedido.pedidoCliente === this.usuario);
@@ -32,8 +32,9 @@ export class ListaPedidosComponent implements OnInit {
     });
   }
 
+
   filtrarPorEstado(): any[] {
-    if (this.estadoFiltro === '') {
+    if (this.estadoFiltro == '') {
       return this.pedidos;
     } else {
       return this.pedidos.filter(pedido => pedido.pedidoEstado === this.estadoFiltro);
@@ -44,23 +45,41 @@ export class ListaPedidosComponent implements OnInit {
     return pedidos.sort((a, b) => b.data - a.data);
   }
 
-  cancelarPedido(numeroPedido: string): void {
-    // Implemente a lógica para cancelar o pedido no servidor aqui
-    // Por enquanto, apenas marcamos o pedido como 'CANCELADO' localmente
-    const pedido = this.pedidos.find(p => p.numero === numeroPedido);
-    if (pedido) {
-      pedido.estado = 'CANCELADO';
+  cancelarPedido(pedidoId: string): void {
+    const pedidoEncontrado = this.pedidos.find(
+      (pedido) => pedido.id === pedidoId 
+    );
 
-      // Atualize o pedido no servidor JSON-Server
-      this.http.put(`http://localhost:3333/pedidos/${pedido.id}`, pedido).subscribe(() => {
-        console.log(`Pedido ${numeroPedido} foi cancelado no servidor.`);
-      });
+    if (pedidoEncontrado && pedidoEncontrado.pedidoEstado != 'RECOLHIDO') {   
+        pedidoEncontrado.pedidoEstado = 'CANCELADO';
+
+        this.http.put(`http://localhost:3333/pedidos/${pedidoId}`, pedidoEncontrado).subscribe(() => {
+        
+        console.log(`Pedido ${pedidoId} foi cancelado no servidor.`);
+
+        });
     }
   }
 
-  pagarPedido(numeroPedido: string): void {
-    // Implemente a lógica para pagar o pedido no servidor aqui
-    // Por enquanto, apenas exibimos um alerta
-    alert(`Pedido ${numeroPedido} pago com sucesso!`);
+  pagarPedido(pedidoId: string): void {
+    const pedidoEncontrado = this.pedidos.find(
+      (pedido) => pedido.id === pedidoId 
+    );
+
+    if (pedidoEncontrado && pedidoEncontrado.pedidoEstado == 'AGUARDANDO PAGAMENTO') {
+      pedidoEncontrado.pedidoEstado = 'PAGO';
+
+      this.http.put(`http://localhost:3333/pedidos/${pedidoId}`, pedidoEncontrado).subscribe(() => {
+      });
+
+      alert(`Pedido ${pedidoId} pago com sucesso!`);
+    }
+    else if(pedidoEncontrado.pedidoEstado == 'PAGO'){
+      alert(`O pedido ja foi pago!`); 
+    }
+    else{
+      alert(`Aguarde a conclusão do pedido!`); 
+    }
+    
   }
 }
