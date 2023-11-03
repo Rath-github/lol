@@ -141,6 +141,23 @@ export class PedidoComponent implements OnInit {
     }
   }
   rejeitarPedido() {
+    if(this.pedido.pedidoRoupas.length != 0){
+    
+      this.pedido.pedidoNum = this.pedidoNum;
+      this.pedido.pedidoEstado = 'REJEITADO';
+      this.pedido.pedidoOrcamento = this.orcamento;
+      this.pedido.pedidoCliente = this.usuario;
+      this.pedido.pedidoPrazo = this.prazoTotal;
+      this.pedido.pedidoHora = this.dataAtual.getHours();
+      this.pedido.pedidoDia = this.dataAtual.getDate();
+      this.pedido.pedidoMes = this.dataAtual.getMonth() + 1;
+      this.pedido.pedidoAno = this.dataAtual.getFullYear();
+
+      // Enviar o pedido para o servidor JSON-Server
+      this.http.post('http://localhost:3333/pedidos', this.pedido).subscribe((response) => {
+
+    })}
+
     this.numeroPedido();
     this.pedido.pedidoRoupas = [];
     this.pedido.pedidoOrcamento = 0;
