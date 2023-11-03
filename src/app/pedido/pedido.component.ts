@@ -62,6 +62,8 @@ export class PedidoComponent implements OnInit {
     let prazo: any = roupa?.tempo;
     let preco: any = roupa?.preco;
 
+    preco = preco*this.quantidade;
+
     this.roupaPrazo = prazo;
     this.roupaPreco = preco;
   }
@@ -71,6 +73,7 @@ export class PedidoComponent implements OnInit {
       (total, roupa) => total + roupa.preco,
       0
     );
+
     this.orcamento = somaPrecos;
 
     const prazo = this.pedido.pedidoRoupas.reduce(
@@ -104,31 +107,38 @@ export class PedidoComponent implements OnInit {
   }
 
   aprovarPedido() {
+
+    if(this.pedido.pedidoRoupas.length != 0){
     
-    this.pedido.pedidoNum = this.pedidoNum;
-    this.pedido.pedidoEstado = 'EM ABERTO';
-    this.pedido.pedidoOrcamento = this.orcamento;
-    this.pedido.pedidoCliente = this.usuario;
-    this.pedido.pedidoPrazo = this.prazoTotal;
-    this.pedido.pedidoHora = this.dataAtual.getHours();
-    this.pedido.pedidoDia = this.dataAtual.getDate();
-    this.pedido.pedidoMes = this.dataAtual.getMonth() + 1;
-    this.pedido.pedidoAno = this.dataAtual.getFullYear();
+      this.pedido.pedidoNum = this.pedidoNum;
+      this.pedido.pedidoEstado = 'EM ABERTO';
+      this.pedido.pedidoOrcamento = this.orcamento;
+      this.pedido.pedidoCliente = this.usuario;
+      this.pedido.pedidoPrazo = this.prazoTotal;
+      this.pedido.pedidoHora = this.dataAtual.getHours();
+      this.pedido.pedidoDia = this.dataAtual.getDate();
+      this.pedido.pedidoMes = this.dataAtual.getMonth() + 1;
+      this.pedido.pedidoAno = this.dataAtual.getFullYear();
 
-    // Enviar o pedido para o servidor JSON-Server
-    this.http.post('http://localhost:3333/pedidos', this.pedido).subscribe((response) => {
-      // Limpar os campos do pedido após o envio
-      this.pedido = new Pedido();
-      this.roupaSelecionada = '';
-      this.quantidade = 0;
-      this.roupaPrazo = 0;
-      this.roupaPreco = 0;
-      this.prazoTotal = 0;
-      this.orcamento = 0;
-      this.numeroPedido();
+      // Enviar o pedido para o servidor JSON-Server
+      this.http.post('http://localhost:3333/pedidos', this.pedido).subscribe((response) => {
+        // Limpar os campos do pedido após o envio
+        this.pedido = new Pedido();
+        this.roupaSelecionada = '';
+        this.quantidade = 0;
+        this.roupaPrazo = 0;
+        this.roupaPreco = 0;
+        this.prazoTotal = 0;
+        this.orcamento = 0;
+        this.numeroPedido();
 
-      window.alert('O seu pedido foi efetuado!');
-    });
+        window.alert('O seu pedido foi efetuado!'); });
+    }
+    else{
+     
+         window.alert('Pedido vazio! Selecione uma peça!'); 
+      
+    }
   }
   rejeitarPedido() {
     this.numeroPedido();
