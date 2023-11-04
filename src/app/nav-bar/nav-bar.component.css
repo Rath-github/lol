@@ -6,3 +6,10 @@
     margin-right: 1em; /* Espaçamento entre os botões (ajuste conforme necessário) */
   }
 
+  .align-left {
+    text-align: left;
+}
+.reduce-padding {
+  position: relative;
+  top: -10px;
+}

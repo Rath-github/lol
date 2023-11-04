@@ -8,9 +8,9 @@
           <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-              <li class="nav-item" *ngIf="tipoUsuario === 'cliente'">
+      <div  id="navbarNav">
+          <ul class="navbar-nav" style="padding-top: 8px;" >
+              <li class="nav-item"  *ngIf="tipoUsuario === 'cliente'">
                   <a class="nav-link" routerLink="/cliente">
                       <i class="bi bi-house-door"></i> Início
                   </a>
@@ -21,7 +21,7 @@
                   </a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" routerLink="/pedido">
+                  <a class="nav-link"  routerLink="/pedido">
                       <i class="bi bi-plus-circle"></i> Novo Pedido
                   </a>
               </li>
@@ -40,6 +40,9 @@
                       <i class="bi bi-file-bar-graph"></i> Relatórios
                   </a>
               </li>
+              <li class="nav-item">
+               
+            </li>
               <li class="nav-item" *ngIf="tipoUsuario === 'funcionario'">
                   <div ngbDropdown class="d-inline-block">
                       <a class="nav-link" ngbDropdownToggle>
@@ -51,7 +54,7 @@
                       </div>
                   </div>
               </li>
-              <li class="nav-item">
+              <li class="nav-item reduce-padding">
                   <div ngbDropdown class="d-inline-block">
                       <a class="nav-link" ngbDropdownToggle>
                           <i class="bi bi-person-circle" style="font-size: 2em; color: #0e508d;"></i>
