@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-funcionario',
@@ -9,70 +10,38 @@ export class FuncionarioComponent implements OnInit {
   filtroSelecionado: string = 'aberto';
   dataInicio: string = '';
   dataFim: string = '';
+  pedidosAbertosNaoRecolhidos: any[] = [];
 
-  pedidos: any[] = [
-    { numero: '123', estado: 'EM ABERTO', data: new Date() },
-    { numero: '124', estado: 'REJEITADO', data: new Date() },
-    { numero: '125', estado: 'RECOLHIDO', data: new Date() },
-    { numero: '126', estado: 'AGUARDANDO PAGAMENTO', data: new Date() },
-    { numero: '127', estado: 'PAGO', data: new Date() },
-    { numero: '128', estado: 'FINALIZADO', data: new Date() },
-    { numero: '129', estado: 'EM ABERTO', data: new Date() },
-  ];
-
-  pedidosFiltrados: any[] = [];
-  
-
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-      this.filtrarPedidos();
-    
+    this.filtrarPedidosAbertosNaoRecolhidos();
   }
 
-  filtrarPedidos(): void {
-    if (this.filtroSelecionado === 'todos') {
-      this.pedidosFiltrados = this.pedidos;
-    } 
-    else if (this.filtroSelecionado === 'aberto') { 
-      this.pedidosFiltrados = this.pedidos.filter(pedido => pedido.estado === 'EM ABERTO').slice();
-
-    }
-    else if (this.filtroSelecionado === 'aguardando') { 
-      this.pedidosFiltrados = this.pedidos.filter(pedido => pedido.estado === 'AGUARDANDO PAGAMENTO').slice();
-
-    }
-    else if (this.filtroSelecionado === 'recolhido') { 
-      this.pedidosFiltrados = this.pedidos.filter(pedido => pedido.estado === 'RECOLHIDO').slice();
-
-    }
-     else if (this.filtroSelecionado === 'periodo') {
-      const dataInicio = new Date(this.dataInicio);
-      const dataFim = new Date(this.dataFim);
-      this.pedidosFiltrados = this.pedidos.filter(
-        (pedido) => pedido.data >= dataInicio && pedido.data <= dataFim
+  filtrarPedidosAbertosNaoRecolhidos(): void {
+    this.http.get<any[]>('http://localhost:3333/pedidos').subscribe((pedidos) => {
+      this.pedidosAbertosNaoRecolhidos = pedidos.filter(
+        (pedido) => pedido.pedidoEstado === 'EM ABERTO' && !pedido.pedidoRecolhido
       );
-    }
+    });
   }
 
-  registrarRecolhimento(numeroPedido: string): void {
-    const pedido = this.pedidos.find((p) => p.numero === numeroPedido);
-    if (pedido && pedido.estado === 'EM ABERTO') {
-      pedido.estado = 'RECOLHIDO';
-    }
+  registrarRecolhimento(pedido: any): void {
+    pedido.pedidoEstado = 'RECOLHIDO';
+    pedido.pedidoRecolhido = true;
+
+    this.http.put(`http://localhost:3333/pedidos/${pedido.id}`, pedido).subscribe(
+      () => {
+        // Pedido atualizado com sucesso
+      },
+      (error) => {
+        // Tratar erros, se necessário
+      }
+    );
   }
 
-  confirmarLavagem(numeroPedido: string): void {
-    const pedido = this.pedidos.find((p) => p.numero === numeroPedido);
-    if (pedido && pedido.estado === 'RECOLHIDO') {
-      pedido.estado = 'AGUARDANDO PAGAMENTO';
-    }
-  }
-
-  finalizarPedido(numeroPedido: string): void {
-    const pedido = this.pedidos.find((p) => p.numero === numeroPedido);
-    if (pedido && pedido.estado === 'PAGO') {
-      pedido.estado = 'FINALIZADO';
-    }
+  formatarData(dia: number, mes: number, ano: number, hora: number): string {
+    const data = new Date(ano, mes - 1, dia, hora);
+    return data.toLocaleString();
   }
 }

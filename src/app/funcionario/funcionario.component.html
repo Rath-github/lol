@@ -1,9 +1,8 @@
-<div class="overflow-hidden d-flex justify-content-center align-items-center shadow mb-4" >
+<div class="overflow-hidden d-flex justify-content-center align-items-center shadow mb-4">
   <h2 class="display-5" style="color:#6C9A8B;">Página Inicial de Funcionário</h2>
 </div>
 
 <div class="container">
-
   <div class="form-group">
     <label for="filtroPedido">Filtrar por:</label>
     <select
@@ -11,36 +10,10 @@
       id="filtroPedido"
       name="filtroPedido"
       [(ngModel)]="filtroSelecionado"
-      (change)="filtrarPedidos()"
+      (change)="filtrarPedidosAbertosNaoRecolhidos()"
     >
-      <option value="todos">Todos os Pedidos</option>
       <option value="aberto">Pedidos em Aberto</option>
-      <option value="aguardando">Aguardando Pagamento</option>
-      <option value="recolhido">Pedidos Recolhidos</option>
-      <option value="periodo">Por Período de Datas</option>
     </select>
-  </div>
-
-  <div *ngIf="filtroSelecionado === 'periodo'" class="form-group">
-    <label for="dataInicio">Data de Início:</label>
-    <input
-      type="date"
-      class="form-control"
-      id="dataInicio"
-      name="dataInicio"
-      [(ngModel)]="dataInicio"
-    />
-  </div>
-
-  <div *ngIf="filtroSelecionado === 'periodo'" class="form-group">
-    <label for="dataFim">Data de Fim:</label>
-    <input
-      type="date"
-      class="form-control"
-      id="dataFim"
-      name="dataFim"
-      [(ngModel)]="dataFim"
-    />
   </div>
 
   <table class="table">
@@ -53,47 +26,31 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let pedido of pedidosFiltrados">
-        <td>{{ pedido.numero }}</td>
+      <tr *ngFor="let pedido of pedidosAbertosNaoRecolhidos">
+        <td>{{ pedido.pedidoNum }}</td>
         <td>
           <span
             [ngClass]="{
-              'text-warning': pedido.estado === 'EM ABERTO',
+              'text-warning': pedido.pedidoEstado === 'EM ABERTO',
               'text-danger':
-                pedido.estado === 'REJEITADO' || pedido.estado === 'CANCELADO',
-              'text-muted': pedido.estado === 'RECOLHIDO',
-              'text-primary': pedido.estado === 'AGUARDANDO PAGAMENTO',
-              'text-orange': pedido.estado === 'PAGO',
-              'text-success': pedido.estado === 'FINALIZADO'
+                pedido.pedidoEstado === 'REJEITADO' || pedido.pedidoEstado === 'CANCELADO',
+              'text-muted': pedido.pedidoEstado === 'RECOLHIDO',
+              'text-primary': pedido.pedidoEstado === 'AGUARDANDO PAGAMENTO',
+              'text-orange': pedido.pedidoEstado === 'PAGO',
+              'text-success': pedido.pedidoEstado === 'FINALIZADO'
             }"
           >
-            {{ pedido.estado }}
+            {{ pedido.pedidoEstado }}
           </span>
         </td>
-        <td>{{ pedido.data | date : "dd/MM/yyyy HH:mm" }}</td>
+        <td>{{ formatarData(pedido.pedidoDia, pedido.pedidoMes, pedido.pedidoAno, pedido.pedidoHora) }}</td>
         <td>
-          <ng-container *ngIf="pedido.estado === 'EM ABERTO'">
+          <ng-container *ngIf="pedido.pedidoEstado === 'EM ABERTO'">
             <button
               class="btn btn-success"
-              (click)="registrarRecolhimento(pedido.numero)"
+              (click)="registrarRecolhimento(pedido)"
             >
               Recolher
-            </button>
-          </ng-container>
-          <ng-container *ngIf="pedido.estado === 'RECOLHIDO'">
-            <button
-              class="btn btn-primary"
-              (click)="confirmarLavagem(pedido.numero)"
-            >
-              Confirmar Lavagem
-            </button>
-          </ng-container>
-          <ng-container *ngIf="pedido.estado === 'PAGO'">
-            <button
-              class="btn btn-success"
-              (click)="finalizarPedido(pedido.numero)"
-            >
-              Finalizar
             </button>
           </ng-container>
         </td>
