@@ -61,7 +61,7 @@ export class RoupasComponent {
     }, 0);
 
    
-    const roupaNova = new Roupa (maiorId + 1, this.novaRoupa.nome, this.novaRoupa.preco, this.novaRoupa.prazo);
+    const roupaNova = new Roupa (maiorId + 1, this.novaRoupa.nome, this.novaRoupa.preco, this.novaRoupa.tempo);
 
     this.pecas.push(roupaNova);
 

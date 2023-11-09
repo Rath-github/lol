@@ -4,7 +4,7 @@ export class Roupa {
     public id: number = 0,
     public nome: string,
     public preco: number,
-    public prazo: number,
+    public tempo: number,
     ){}
 }
 

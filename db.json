@@ -242,6 +242,86 @@
       "pedidoAno": 2023,
       "pedidoEstado": "EM ABERTO",
       "id": "5QvaLQs"
+    },
+    {
+      "pedidoNum": null,
+      "pedidoCliente": "joao@gmail.com",
+      "pedidoRoupas": [
+        {
+          "tipo": "camisa",
+          "quantidade": 5,
+          "tempo": 2,
+          "preco": 250
+        }
+      ],
+      "pedidoOrcamento": 250,
+      "pedidoPrazo": 2,
+      "pedidoHora": 19,
+      "pedidoDia": 8,
+      "pedidoMes": 11,
+      "pedidoAno": 2023,
+      "pedidoEstado": "CANCELADO",
+      "id": "fKannxf"
+    },
+    {
+      "pedidoNum": null,
+      "pedidoCliente": "joao@gmail.com",
+      "pedidoRoupas": [
+        {
+          "tipo": "camiseta",
+          "quantidade": 20,
+          "tempo": 2,
+          "preco": 1000
+        }
+      ],
+      "pedidoOrcamento": 1000,
+      "pedidoPrazo": 2,
+      "pedidoHora": 21,
+      "pedidoDia": 8,
+      "pedidoMes": 11,
+      "pedidoAno": 2023,
+      "pedidoEstado": "EM ABERTO",
+      "id": "16n4DOj"
+    },
+    {
+      "pedidoNum": 1,
+      "pedidoCliente": "joao@gmail.com",
+      "pedidoRoupas": [
+        {
+          "tipo": "camiseta",
+          "quantidade": 4,
+          "tempo": 2,
+          "preco": 200
+        }
+      ],
+      "pedidoOrcamento": 200,
+      "pedidoPrazo": 2,
+      "pedidoHora": 21,
+      "pedidoDia": 8,
+      "pedidoMes": 11,
+      "pedidoAno": 2023,
+      "pedidoEstado": "EM ABERTO",
+      "id": "1d-Zxah"
+    },
+    {
+      "pedidoNum": 2,
+      "pedidoCliente": "joao@gmail.com",
+      "pedidoRoupas": [
+        {
+          "tipo": "cueca",
+          "quantidade": 9,
+          "tempo": 8,
+          "preco": 72
+        }
+      ],
+      "pedidoOrcamento": 72,
+      "pedidoPrazo": 8,
+      "pedidoHora": 21,
+      "pedidoDia": 8,
+      "pedidoMes": 11,
+      "pedidoAno": 2023,
+      "pedidoEstado": "EM ABERTO",
+      "id": "8SGaUwP"
     }
   ],
   "pecas": [
@@ -319,7 +399,11 @@
     },
     {
       "id": 2,
-      "nome": "Mário"
+      "nome": "Mário",
+      "email": "mario@gmail.com",
+      "endereco": " Rua C, 789",
+      "telefone": "10121116",
+      "senha": "1234"
     }
   ]
 }

@@ -24,7 +24,7 @@ export class PedidoComponent implements OnInit {
 
   pedidoAprovado: boolean = false;
   pedidoRejeitado: boolean = false;
-  id: string = '';
+  pedidoNum: number = 0;
 
   roupasDisponiveis: Roupa[] = [];
 
@@ -33,6 +33,25 @@ export class PedidoComponent implements OnInit {
     this.http.get<Roupa[]>('http://localhost:3333/pecas').subscribe((roupas) => {
       this.roupasDisponiveis = roupas;
     });
+
+    this.estados.userEmail$.subscribe((userEmail) => {
+      this.usuario = userEmail;
+    });
+
+    this.numeroPedido();
+  }
+
+  numeroPedido() {
+    this.http.get<Pedido[]>('http://localhost:3333/pedidos').subscribe((pedidos) => {
+      if (pedidos && pedidos.length > 0) {
+        this.pedidoNum =
+          pedidos.reduce((maxId, pedido) => (pedido.pedidoNum > maxId ? pedido.pedidoNum : maxId), 0) + 1;
+      } else {
+        // Se não houver pedidos existentes, inicialize o ID com 1
+        this.pedidoNum = 1;
+      }
+      console.log('ID de pedido:', this.pedidoNum);
+    });
   }
 
   calculaPrazoPreco(tipoRoupa: string) {
@@ -40,8 +59,10 @@ export class PedidoComponent implements OnInit {
       (roupa) => roupa.nome === tipoRoupa
     );
 
-    let prazo: any = roupa?.prazo;
+    let prazo: any = roupa?.tempo;
     let preco: any = roupa?.preco;
+
+    preco = preco * this.quantidade;
 
     this.roupaPrazo = prazo;
     this.roupaPreco = preco;
@@ -52,13 +73,15 @@ export class PedidoComponent implements OnInit {
       (total, roupa) => total + roupa.preco,
       0
     );
+
     this.orcamento = somaPrecos;
 
     const prazo = this.pedido.pedidoRoupas.reduce(
-      (max, roupa) => Math.max(max, roupa.prazo),
+      (max, roupa) => Math.max(max, roupa.tempo),
       -Infinity
     );
     this.prazoTotal = prazo;
+    console.log(this.prazoTotal);
   }
 
   adicionar() {
@@ -68,7 +91,7 @@ export class PedidoComponent implements OnInit {
       this.pedido.pedidoRoupas.push({
         tipo: this.roupaSelecionada,
         quantidade: this.quantidade,
-        prazo: this.roupaPrazo,
+        tempo: this.roupaPrazo,
         preco: this.roupaPreco,
       });
 
@@ -84,31 +107,53 @@ export class PedidoComponent implements OnInit {
   }
 
   aprovarPedido() {
-    this.pedido.pedidoEstado = 'EM ABERTO';
-    this.pedido.pedidoCliente = this.usuario;
-    this.pedido.pedidoPrazo = this.prazoTotal;
-    this.pedido.pedidoHora = this.dataAtual.getHours();
-    this.pedido.pedidoDia = this.dataAtual.getDate();
-    this.pedido.pedidoMes = this.dataAtual.getMonth() + 1;
-    this.pedido.pedidoAno = this.dataAtual.getFullYear();
+    if (this.pedido.pedidoRoupas.length != 0) {
+      this.pedido.pedidoNum = this.pedidoNum;
+      this.pedido.pedidoEstado = 'EM ABERTO';
+      this.pedido.pedidoOrcamento = this.orcamento;
+      this.pedido.pedidoCliente = this.usuario;
+      this.pedido.pedidoPrazo = this.prazoTotal;
+      this.pedido.pedidoHora = this.dataAtual.getHours();
+      this.pedido.pedidoDia = this.dataAtual.getDate();
+      this.pedido.pedidoMes = this.dataAtual.getMonth() + 1;
+      this.pedido.pedidoAno = this.dataAtual.getFullYear();
 
-    // Enviar o pedido para o servidor JSON-Server
-    this.http.post('http://localhost:3333/pedidos', this.pedido).subscribe((response) => {
-      // Limpar os campos do pedido após o envio
-      this.pedido = new Pedido();
-      this.roupaSelecionada = '';
-      this.quantidade = 0;
-      this.roupaPrazo = 0;
-      this.roupaPreco = 0;
-      this.prazoTotal = 0;
-      this.orcamento = 0;
+      // Enviar o pedido para o servidor JSON-Server
+      this.http.post('http://localhost:3333/pedidos', this.pedido).subscribe((response) => {
+        // Limpar os campos do pedido após o envio
+        this.pedido = new Pedido();
+        this.roupaSelecionada = '';
+        this.quantidade = 0;
+        this.roupaPrazo = 0;
+        this.roupaPreco = 0;
+        this.prazoTotal = 0;
+        this.orcamento = 0;
+        this.numeroPedido();
 
-      window.alert('O seu pedido foi efetuado!');
-    });
+        window.alert('O seu pedido foi efetuado!');
+      });
+    } else {
+      window.alert('Pedido vazio! Selecione uma peça!');
+    }
   }
+
   rejeitarPedido() {
-    this.pedido.pedidoNum = 0;
-    this.pedido.pedidoCliente = '';
+    if (this.pedido.pedidoRoupas.length != 0) {
+      this.pedido.pedidoNum = this.pedidoNum;
+      this.pedido.pedidoEstado = 'REJEITADO';
+      this.pedido.pedidoOrcamento = this.orcamento;
+      this.pedido.pedidoCliente = this.usuario;
+      this.pedido.pedidoPrazo = this.prazoTotal;
+      this.pedido.pedidoHora = this.dataAtual.getHours();
+      this.pedido.pedidoDia = this.dataAtual.getDate();
+      this.pedido.pedidoMes = this.dataAtual.getMonth() + 1;
+      this.pedido.pedidoAno = this.dataAtual.getFullYear();
+
+      // Enviar o pedido para o servidor JSON-Server
+      this.http.post('http://localhost:3333/pedidos', this.pedido).subscribe((response) => {});
+    }
+
+    this.numeroPedido();
     this.pedido.pedidoRoupas = [];
     this.pedido.pedidoOrcamento = 0;
     this.pedido.pedidoPrazo = 0;

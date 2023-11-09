@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -7,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./autocadastro.component.css'],
 })
 export class AutocadastroComponent {
+
   constructor(private http: HttpClient) {}
 
   onSubmit(form: any): void {
@@ -27,11 +29,12 @@ export class AutocadastroComponent {
     this.http.post('http://localhost:3333/Clientes', userData).subscribe(
       (response) => {
         // O usuário foi cadastrado com sucesso, e você pode lidar com a resposta aqui.
-        console.error('Sucesso ao cadastrar usuário:', response);
+        console.log('Sucesso ao cadastrar usuário:', response);
       },
       (error) => {
         console.error('Erro ao cadastrar usuário:', error);
       }
     );
+
   }
 }

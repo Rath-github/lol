@@ -3,7 +3,7 @@ export class Pedido {
 
     pedidoNum : number = 0;
     pedidoCliente : string = '';
-    pedidoRoupas : { tipo: string, quantidade: number,prazo: number, preco: number  }[] = [];
+    pedidoRoupas : { tipo: string, quantidade: number,tempo: number, preco: number  }[] = [];
     pedidoOrcamento : number = 0;
     pedidoPrazo : number = 0;
     pedidoHora : number = 0;

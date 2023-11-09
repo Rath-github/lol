@@ -20,7 +20,7 @@
                     <td>{{roupa.id}}</td>
                     <td>{{roupa.nome}}</td>
                     <td>{{roupa.preco}}</td>
-                    <td>{{roupa.prazo}} dias</td>
+                    <td>{{roupa.tempo}} dias</td>
                     
 
                     <button (click)="selecionarEditar(roupa.id)" class="btn btn-primary m-1">Editar</button>
@@ -47,7 +47,7 @@
 
                     <div>
                         <label for="prazo" class="col-sm-4 col-form-label">Prazo estimado:</label>
-                        <input type="number" id="prazo" name="prazo" placeholder="Digite o prazo estimado" required [(ngModel)]="novaRoupa.prazo">
+                        <input type="number" id="prazo" name="prazo" placeholder="Digite o prazo estimado" required [(ngModel)]="novaRoupa.tempo">
                     </div>
 
                     <div class="d-flex justify-content-center align-items-center ">
@@ -73,7 +73,7 @@
 
                     <div>
                         <label for="prazo" class="col-sm-4 col-form-label">Prazo estimado:</label>
-                        <input type="number" id="prazo" name="prazo" placeholder="Digite o prazo estimado" required [(ngModel)]="novaRoupa.prazo">
+                        <input type="number" id="prazo" name="prazo" placeholder="Digite o prazo estimado" required [(ngModel)]="novaRoupa.tempo">
                     </div>
                     
                     <div class="d-flex justify-content-center align-items-center ">

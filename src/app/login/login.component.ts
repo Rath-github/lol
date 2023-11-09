@@ -12,6 +12,7 @@ export class LoginComponent implements OnInit {
   usuario: string = '';
   senha: string = '';
   loginIncorreto: boolean = false;
+  usuarioEncontrado: any = [];
 
   constructor(
     private router: Router,
@@ -28,26 +29,39 @@ export class LoginComponent implements OnInit {
         this.http
           .get<any[]>('http://localhost:3333/Funcionarios')
           .subscribe((funcionarios) => {
-            const usuarios = [...clientes, ...funcionarios];
+            const cliente = [...clientes];
+            const funcionario = [...funcionarios];
 
-            const usuarioEncontrado = usuarios.find(
-              (user) => user.email === this.usuario && user.senha === this.senha
-            );
 
-            if (usuarioEncontrado) {
-              this.estados.alterarValor(true);
-              this.estados.emailUsuario(usuarioEncontrado.email);
+              this.usuarioEncontrado = cliente.find(
+                (user) => user.email === this.usuario && user.senha === this.senha
+              );
 
-              if (usuarioEncontrado.tipo === 'cliente') {
-                this.estados.tipoUsuario('cliente');
-                this.router.navigate(['/cliente']);
-              } else if (usuarioEncontrado.tipo === 'funcionario') {
-                this.estados.tipoUsuario('funcionario');
-                this.router.navigate(['/funcionario']);
-              }
-            } else {
-              this.loginIncorreto = true;
-            }
+                  if (this.usuarioEncontrado) {
+                    this.estados.alterarValor(true);
+                    this.estados.emailUsuario(this.usuarioEncontrado.email);
+                    this.estados.tipoUsuario('cliente');
+                    this.router.navigate(['/cliente']);
+
+                  } else {
+                    this.loginIncorreto = true;
+                  }
+
+
+              this.usuarioEncontrado = funcionario.find(
+                (user) => user.email === this.usuario && user.senha === this.senha
+              );
+
+
+                  if (this.usuarioEncontrado) {
+                    this.estados.alterarValor(true);
+                    this.estados.emailUsuario(this.usuarioEncontrado.email);
+                    this.estados.tipoUsuario('funcionario');
+                      this.router.navigate(['/funcionario']);
+
+                  } else {
+                    this.loginIncorreto = true;
+                  }
           });
       });
   }
