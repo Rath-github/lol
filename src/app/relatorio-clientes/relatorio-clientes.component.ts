@@ -49,6 +49,11 @@ export class RelatorioClientesComponent  implements OnInit {
 
     doc.setFontSize(13);
     for (const cliente of this.clientes) {
+      if (y > 250) {
+        doc.addPage(); // Adiciona uma nova página se a altura exceder 250
+        y = 20; // Reinicia a posição vertical
+      }
+      
       doc.text(`ID: ${cliente.id}`, 10, y);
       doc.text(`Nome: ${cliente.nome}`, 30, y);
       doc.text(`CPF: ${cliente.cpf}`, 140, y);
