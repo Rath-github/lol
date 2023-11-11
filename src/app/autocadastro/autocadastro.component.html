@@ -7,8 +7,7 @@
       </div>
       <form
         #autocadastroForm="ngForm"
-        (ngSubmit)="onSubmit(autocadastroForm.value)"
-      >
+        (ngSubmit)="onSubmit(autocadastroForm.value)">
         <div class="mb-3">
           <label for="cpf" class="form-label">CPF:</label>
           <input
@@ -46,6 +45,19 @@
           />
         </div>
         <div class="mb-3">
+          <label for="cep" class="form-label">CEP:</label>
+          <input
+            type="text"
+            id="cep"
+            name="cep"
+            class="form-control"
+            maxlength="8"
+            maxlength="9"
+            [(ngModel)]="cep"
+            (ngModelChange)="buscaCep()"
+          />
+        </div>
+        <div class="mb-3">
           <label for="endereco" class="form-label">Endereço:</label>
           <input
             type="text"
@@ -54,7 +66,7 @@
             class="form-control"
             maxlength="60"
             required
-            ngModel
+            [(ngModel)]="endereco"
           />
         </div>
         <div class="mb-3">
@@ -74,6 +86,20 @@
           <a href="/login" class="btn btn-link">Voltar para o Login</a>
         </div>
       </form>
+      
+        <div class="alert alert-success alert-dismissible fade show col-md-6 col-lg-12  d-flex justify-content-center align-items-center " role="alert" *ngIf="sucesso">
+            <p>Usuario Cadastrado!</p>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="sucesso = false" ></button>
+        </div>
+    
+   
+      <div class="alert alert-danger col-md-6 col-lg-12  d-flex justify-content-center align-items-center " role="alert" *ngIf="erro">
+          <p>Erro ao Cadastrar!</p>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="erro = false" ></button>
+      </div>
+  
+    
     </div>
+  
   </div>
 </div>
