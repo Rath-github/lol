@@ -17,7 +17,7 @@
       "pedidoDia": 8,
       "pedidoMes": 11,
       "pedidoAno": 2023,
-      "pedidoEstado": "RECOLHIDO",
+      "pedidoEstado": "FINALIZADO",
       "id": "1d-Zxah",
       "pedidoRecolhido": true
     },
@@ -38,8 +38,9 @@
       "pedidoDia": 8,
       "pedidoMes": 11,
       "pedidoAno": 2023,
-      "pedidoEstado": "EM ABERTO",
-      "id": "8SGaUwP"
+      "pedidoEstado": "AGUARDANDO PAGAMENTO",
+      "id": "8SGaUwP",
+      "pedidoRecolhido": true
     }
   ],
   "pecas": [
