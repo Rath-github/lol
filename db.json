@@ -115,14 +115,24 @@
       "endereco": " Rua C, 789",
       "telefone": "10121116",
       "senha": "1234"
-    },
-    {
+  },
+  {
       "id": 2,
       "nome": "Mário",
       "email": "mario@gmail.com",
       "endereco": " Rua C, 789",
       "telefone": "10121116",
       "senha": "1234"
+  },
+    {
+      "id": 3,
+      "cpf": 10953861902,
+      "nome": "Thiago Dos Santos",
+      "email": "thiagodossantos315@hotmail.com",
+      "dtNascimento": "16/06/2003",
+      "senha": "1234",
+      "cargo": "Gerente",
+      "tipo": ""
     }
   ]
 }

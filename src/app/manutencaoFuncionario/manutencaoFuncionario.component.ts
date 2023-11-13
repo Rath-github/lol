@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 interface Funcionario {
   id: number;
-  cpf : string;
+  cpf: string;
   nome: string;
   email: string;
   dtNascimento: string;
-  senha : string;
-  cargo : string;
-  tipo : string;
+  senha: string;
+  cargo: string;
+  tipo: string;
 }
 
 @Component({
@@ -17,39 +18,12 @@ interface Funcionario {
   styleUrls: ['./manutencaoFuncionario.component.css'],
 })
 export class ManutencaoFuncionarioComponent implements OnInit {
-  funcionarios : Funcionario[] = [
-  
-    {
-      id: 1,
-      cpf: '111.222.333-44',
-      nome: 'Maria',
-      email: 'maria@gmail.com',
-      dtNascimento: '15/05/2000',
-      senha: '1234',
-      cargo: 'Atendente',
-      tipo: 'funcionario',
-    },
-    {
-      id: 2,
-      cpf: '222.333.444-55',
-      nome: 'Mário',
-      email: 'mario@gmail.com',
-      dtNascimento: '03/02/1952',
-      senha: '1234',
-      cargo: 'Gerente',
-      tipo: 'funcionario',
-    },
-  ];
- 
+  funcionarios: Funcionario[] = [];
   campoEditar: boolean = false;
   campoNovo: boolean = false;
-  nomeSelecionado: string='';
-  maiorId = this.funcionarios.reduce((maxId, funcionario) => { return Math.max(maxId, funcionario.id);}, 0);
-  
-  
-  
+  nomeSelecionado: string = '';
   novoFuncionario: Funcionario = {
-    id: this.maiorId + 1,
+    id: 0,
     cpf: '',
     nome: '',
     email: '',
@@ -59,68 +33,62 @@ export class ManutencaoFuncionarioComponent implements OnInit {
     tipo: '',
   };
 
-  
-  
-  constructor() {}
-
+  constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    // Carregue os funcionários existentes, se necessário
+    this.carregarFuncionarios();
+  }
+
+  carregarFuncionarios(): void {
+    this.http.get<Funcionario[]>('http://localhost:3333/funcionarios').subscribe((funcionarios) => {
+      this.funcionarios = funcionarios;
+    });
   }
 
   adicionarFuncionario(): void {
-    this.maiorId ++;
-    // Adicione o novo funcionário à lista de funcionários
-    this.funcionarios.push(this.novoFuncionario);
-    // Limpe os campos do formulário
-    this.novoFuncionario = {
-      id: this.maiorId + 1,
-      cpf: '',
-      nome: '',
-      email: '',
-      dtNascimento: '',
-      senha: '',
-      cargo: '',
-      tipo: '',
-    };    
+    this.http.post('http://localhost:3333/funcionarios', this.novoFuncionario).subscribe(() => {
+      this.carregarFuncionarios();
+      this.novoFuncionario = {
+        id: 0,
+        cpf: '',
+        nome: '',
+        email: '',
+        dtNascimento: '',
+        senha: '',
+        cargo: '',
+        tipo: '',
+      };
+      this.campoNovo = false;
+    });
   }
 
-  removerFuncionario(index: number): void {
-    // Remova o funcionário da lista pelo índice
-    this.funcionarios.splice(index, 1);
-  }
-  
-  selecionarEditar(id: number){
-    const index = this.funcionarios.findIndex((funcionario) => funcionario.id === id);
-
-
-    this.campoEditar = true;
-    this.campoNovo=false;
-
-
-    this.novoFuncionario = { ...this.funcionarios[index] }; // o operador ... (spread) cria uma copia do conteudo da variavel sem que elas compartilhem do mesmo objeto
-    
+  removerFuncionario(id: number): void {
+    this.http.delete(`http://localhost:3333/funcionarios/${id}`).subscribe(() => {
+      this.carregarFuncionarios();
+    });
   }
 
-  editar(){
-    const index = this.funcionarios.findIndex((funcionario) => funcionario.id === this.novoFuncionario.id);
-   
-    this.funcionarios[index] = this.novoFuncionario; 
+  selecionarEditar(id: number): void {
+    this.http.get<Funcionario>(`http://localhost:3333/funcionarios/${id}`).subscribe((funcionario) => {
+      this.novoFuncionario = funcionario || {
+        id: 0,
+        cpf: '',
+        nome: '',
+        email: '',
+        dtNascimento: '',
+        senha: '',
+        cargo: '',
+        tipo: '',
+      };
+      this.campoEditar = true;
+      this.campoNovo = false;
+    });
+  }
 
-    this.campoEditar = false;
-  
-   // console.log(this.pecas[index].nome);
-  //  console.log(this.roupaSelecionada.nome);
-    this.novoFuncionario = {
-      id: this.maiorId + 1,
-      cpf: '',
-      nome: '',
-      email: '',
-      dtNascimento: '',
-      senha: '',
-      cargo: '',
-      tipo: '',
-    };
+  editar(): void {
+    this.http.put(`http://localhost:3333/funcionarios/${this.novoFuncionario.id}`, this.novoFuncionario).subscribe(() => {
+      this.carregarFuncionarios();
+      this.campoEditar = false;
+    });
   }
 }
-
