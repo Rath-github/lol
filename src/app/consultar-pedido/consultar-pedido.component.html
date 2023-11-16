@@ -7,7 +7,7 @@
     <div class="d-flex justify-content-center p-4">
        
         <label for="busca"></label>
-        <input type="text" id="busca" name="busca" class="rounded col-md-6 " placeholder="Qual o numero do pedido?" [(ngModel)]="id">
+        <input type="text" id="busca" name="busca" class="rounded col-md-6 " placeholder="Qual o numero do pedido?" [(ngModel)]="pedidoNum">
     
         <button class="btn btn-secondary border-black" (click)="buscarPedido()">Buscar</button>
     </div>
@@ -18,27 +18,41 @@
             <thead >
                 <tr>
                     <td style="background-color: gray;">Numero do Pedido: </td>
-                    <td>{{idPedido}}</td>
+                    <td></td>
+                    <td>{{pedidoNum}}</td>
                   </tr>
                   
                 <tr >
                     <td style="background-color: gray;">Orçamento: </td>
-                         <td>{{orcamento}},00 R$</td>
+                    <td></td>
+                    <td>{{orcamento}},00 R$</td>
                 </tr>
                 <tr >
                     <td style="background-color: gray;">Prazo: </td>
-                         <td>{{prazo}} dias</td> 
+                    <td></td>
+                    <td>{{prazo}} dias</td> 
                 </tr>
                 <tr >
                     <td style="background-color: gray;">Estado: </td>
-                         <td>{{estado}}</td>
+                    <td></td>
+                    <td>{{estado}}</td>
+                </tr>
+                <tr>
+                    <td></td>
                 </tr>
             </thead>
             <tbody>
-    
                 <tr>
                     <td>Roupas: </td>
-                    <td>{{roupas}} </td>
+                    <td>Tipo: </td>
+                    <td>Quantidade: </td>
+                    <td>Preço: </td>
+                </tr>
+                <tr *ngFor="let roupa of roupas">
+                    <td></td>
+                    <td >{{roupa.tipo}} </td>
+                    <td >{{roupa.quantidade}} Peças</td>
+                    <td >{{roupa.preco}},00 R$</td>
                 </tr>
             </tbody>
 
