@@ -20,13 +20,13 @@ export class ConsultarPedidoComponent {
   constructor(private http: HttpClient) {}
 
   buscarPedido() {
-    this.http.get<any>(`http://localhost:3333/pedidos/${this.id}`).subscribe(
+    this.http.get<any>(`http://localhost:3333/pedidos/${this.idPedido}`).subscribe(
       (pedidoEncontrado) => {
         this.roupas = pedidoEncontrado.roupas;
         this.orcamento = pedidoEncontrado.orcamento;
         this.prazo = pedidoEncontrado.prazo;
         this.estado = pedidoEncontrado.estado;
-        this.idPedido = pedidoEncontrado.id; // Use idPedido para armazenar o id do pedido
+        this.idPedido = pedidoEncontrado.idPedido; // Use idPedido para armazenar o id do pedido
 
         this.naoEncontrado = false;
         this.exibirPedido = true;

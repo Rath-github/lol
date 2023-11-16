@@ -29,7 +29,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let pedido of ordenarPorDataDecrescente(filtrarPorEstado())">
-        <td>{{ pedido.id }}</td>
+        <td>{{ pedido.pedidoNum }}</td>
         <td>{{ pedido.pedidoEstado }}</td>
         <td>{{ pedido.pedidoDia}}/{{pedido.pedidoMes}}/{{pedido.pedidoAno}}</td>
         <td>

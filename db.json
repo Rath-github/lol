@@ -17,7 +17,7 @@
       "pedidoDia": 8,
       "pedidoMes": 11,
       "pedidoAno": 2023,
-      "pedidoEstado": "FINALIZADO",
+      "pedidoEstado": "CANCELADO",
       "id": "1d-Zxah",
       "pedidoRecolhido": true
     },
@@ -38,16 +38,176 @@
       "pedidoDia": 8,
       "pedidoMes": 11,
       "pedidoAno": 2023,
-      "pedidoEstado": "AGUARDANDO PAGAMENTO",
+      "pedidoEstado": "CANCELADO",
       "id": "8SGaUwP",
       "pedidoRecolhido": true
+    },
+    {
+      "pedidoNum": 3,
+      "pedidoCliente": "joao@gmail.com",
+      "pedidoRoupas": [
+        {
+          "tipo": "calca",
+          "quantidade": 20,
+          "tempo": 3,
+          "preco": 2000
+        }
+      ],
+      "pedidoOrcamento": 2000,
+      "pedidoPrazo": 3,
+      "pedidoHora": 19,
+      "pedidoDia": 13,
+      "pedidoMes": 11,
+      "pedidoAno": 2023,
+      "pedidoEstado": "CANCELADO",
+      "id": "s4W9CoK"
+    },
+    {
+      "pedidoNum": 4,
+      "pedidoCliente": "joao@gmail.com",
+      "pedidoRoupas": [
+        {
+          "tipo": "camisa",
+          "quantidade": 15,
+          "tempo": 2,
+          "preco": 750
+        }
+      ],
+      "pedidoOrcamento": 750,
+      "pedidoPrazo": 2,
+      "pedidoHora": 16,
+      "pedidoDia": 15,
+      "pedidoMes": 11,
+      "pedidoAno": 2023,
+      "pedidoEstado": "FINALIZADO",
+      "id": "d_OwxhJ",
+      "pedidoRecolhido": true
+    },
+    {
+      "pedidoNum": 5,
+      "pedidoCliente": "joao@gmail.com",
+      "pedidoRoupas": [
+        {
+          "tipo": "meia",
+          "quantidade": 5,
+          "tempo": 10,
+          "preco": 25
+        },
+        {
+          "tipo": "camiseta",
+          "quantidade": 7,
+          "tempo": 2,
+          "preco": 350
+        },
+        {
+          "tipo": "cueca",
+          "quantidade": 10,
+          "tempo": 8,
+          "preco": 80
+        }
+      ],
+      "pedidoOrcamento": 455,
+      "pedidoPrazo": 10,
+      "pedidoHora": 16,
+      "pedidoDia": 15,
+      "pedidoMes": 11,
+      "pedidoAno": 2023,
+      "pedidoEstado": "CANCELADO",
+      "id": "UB3AQHh"
+    },
+    {
+      "pedidoNum": 6,
+      "pedidoCliente": "joao@gmail.com",
+      "pedidoRoupas": [
+        {
+          "tipo": "calca",
+          "quantidade": 20,
+          "tempo": 3,
+          "preco": 2000
+        }
+      ],
+      "pedidoOrcamento": 2000,
+      "pedidoPrazo": 3,
+      "pedidoHora": 16,
+      "pedidoDia": 15,
+      "pedidoMes": 11,
+      "pedidoAno": 2023,
+      "pedidoEstado": "CANCELADO",
+      "id": "I0JW6GM"
+    },
+    {
+      "pedidoNum": 7,
+      "pedidoCliente": "joao@gmail.com",
+      "pedidoRoupas": [
+        {
+          "tipo": "camisa",
+          "quantidade": 15,
+          "tempo": 2,
+          "preco": 750
+        }
+      ],
+      "pedidoOrcamento": 750,
+      "pedidoPrazo": 2,
+      "pedidoHora": 16,
+      "pedidoDia": 15,
+      "pedidoMes": 11,
+      "pedidoAno": 2023,
+      "pedidoEstado": "AGUARDANDO PAGAMENTO",
+      "id": "Q7BXQdU",
+      "pedidoRecolhido": true
+    },
+    {
+      "pedidoNum": 8,
+      "pedidoCliente": "joao@gmail.com",
+      "pedidoRoupas": [
+        {
+          "tipo": "meia",
+          "quantidade": 2,
+          "tempo": 10,
+          "preco": 10
+        },
+        {
+          "tipo": "camiseta",
+          "quantidade": 5,
+          "tempo": 2,
+          "preco": 250
+        }
+      ],
+      "pedidoOrcamento": 260,
+      "pedidoPrazo": 10,
+      "pedidoHora": 16,
+      "pedidoDia": 15,
+      "pedidoMes": 11,
+      "pedidoAno": 2023,
+      "pedidoEstado": "EM ABERTO",
+      "id": "YGOto25"
+    },
+    {
+      "pedidoNum": 9,
+      "pedidoCliente": "renan@gmail.com",
+      "pedidoRoupas": [
+        {
+          "tipo": "camisa",
+          "quantidade": 12,
+          "tempo": 2,
+          "preco": 600
+        }
+      ],
+      "pedidoOrcamento": 600,
+      "pedidoPrazo": 2,
+      "pedidoHora": 17,
+      "pedidoDia": 15,
+      "pedidoMes": 11,
+      "pedidoAno": 2023,
+      "pedidoEstado": "EM ABERTO",
+      "id": "yZJuN0A"
     }
   ],
   "pecas": [
     {
       "id": 1,
       "nome": "calca",
-      "preco": 100,
+      "preco": 70,
       "tempo": 3
     },
     {
@@ -105,6 +265,87 @@
       "telefone": "997848601",
       "senha": "6009",
       "id": 5
+    },
+    {
+      "cpf": "",
+      "nome": "",
+      "email": "",
+      "endereco": "",
+      "telefone": "",
+      "senha": "9658",
+      "id": 6
+    },
+    {
+      "cpf": "",
+      "nome": "",
+      "email": "",
+      "endereco": "",
+      "telefone": "",
+      "senha": "7521",
+      "id": 7
+    },
+    {
+      "cpf": "",
+      "nome": "",
+      "email": "",
+      "endereco": "",
+      "telefone": "",
+      "senha": "3285",
+      "id": 8
+    },
+    {
+      "cpf": "",
+      "nome": "",
+      "email": "",
+      "endereco": "",
+      "telefone": "",
+      "senha": "6719",
+      "id": 9
+    },
+    {
+      "cpf": "",
+      "nome": "",
+      "email": "",
+      "endereco": "",
+      "telefone": "",
+      "senha": "6023",
+      "id": 10
+    },
+    {
+      "cpf": "",
+      "nome": "",
+      "email": "",
+      "endereco": "",
+      "telefone": "",
+      "senha": "2537",
+      "id": 11
+    },
+    {
+      "cpf": "",
+      "nome": "",
+      "email": "",
+      "endereco": "",
+      "telefone": "",
+      "senha": "3788",
+      "id": 12
+    },
+    {
+      "cpf": "",
+      "nome": "",
+      "email": "",
+      "endereco": "",
+      "telefone": "",
+      "senha": "9074",
+      "id": 13
+    },
+    {
+      "cpf": "1234567489",
+      "nome": "Renan",
+      "email": "renan@gmail.com",
+      "endereco": "ASD",
+      "telefone": "459649813216987",
+      "senha": "9804",
+      "id": 14
     }
   ],
   "Funcionarios": [
@@ -115,21 +356,13 @@
       "endereco": " Rua C, 789",
       "telefone": "10121116",
       "senha": "1234"
-  },
-  {
-      "id": 2,
-      "nome": "Mário",
-      "email": "mario@gmail.com",
-      "endereco": " Rua C, 789",
-      "telefone": "10121116",
-      "senha": "1234"
-  },
+    },
     {
-      "id": 3,
-      "cpf": 10953861902,
-      "nome": "Thiago Dos Santos",
-      "email": "thiagodossantos315@hotmail.com",
-      "dtNascimento": "16/06/2003",
+      "id": 4,
+      "cpf": 123456788,
+      "nome": "Renan",
+      "email": "renan@gmail.com",
+      "dtNascimento": "15/2/2003",
       "senha": "1234",
       "cargo": "Gerente",
       "tipo": ""

@@ -18,23 +18,28 @@ export class ListaPedidosComponent implements OnInit {
   ngOnInit(): void {
     this.estados.acessoLogin$.subscribe((tipo) => {
       this.tipoUsuario = tipo; 
-    }),
+    });
 
-    this.estados.userEmail$.subscribe((userEmail) =>{
+    this.estados.userEmail$.subscribe((userEmail) => {
       this.usuario = userEmail;
-    }
-    );
-    
+      this.carregarPedidos();
+    });
+  }
+
+  carregarPedidos(): void {
     this.http.get<any[]>('http://localhost:3333/pedidos').subscribe((pedidos) => {
       if (pedidos && this.usuario) {
-        this.pedidos = pedidos.filter((pedido) => pedido.pedidoCliente === this.usuario);
+        if (this.tipoUsuario === 'cliente') {
+          this.pedidos = pedidos.filter((pedido) => pedido.pedidoCliente === this.usuario);
+        } else if (this.tipoUsuario === 'funcionario') {
+          this.pedidos = pedidos;
+        }
       }
     });
   }
 
-
   filtrarPorEstado(): any[] {
-    if (this.estadoFiltro == '') {
+    if (this.estadoFiltro === '') {
       return this.pedidos;
     } else {
       return this.pedidos.filter(pedido => pedido.pedidoEstado === this.estadoFiltro);
@@ -46,40 +51,34 @@ export class ListaPedidosComponent implements OnInit {
   }
 
   cancelarPedido(pedidoId: string): void {
-    const pedidoEncontrado = this.pedidos.find(
-      (pedido) => pedido.id === pedidoId 
-    );
+    const pedidoEncontrado = this.pedidos.find((pedido) => pedido.id === pedidoId);
 
-    if (pedidoEncontrado && pedidoEncontrado.pedidoEstado != 'RECOLHIDO') {   
-        pedidoEncontrado.pedidoEstado = 'CANCELADO';
+    if (pedidoEncontrado && pedidoEncontrado.pedidoEstado !== 'RECOLHIDO') {
+      pedidoEncontrado.pedidoEstado = 'CANCELADO';
 
-        this.http.put(`http://localhost:3333/pedidos/${pedidoId}`, pedidoEncontrado).subscribe(() => {
-        
+      this.http.put(`http://localhost:3333/pedidos/${pedidoId}`, pedidoEncontrado).subscribe(() => {
         console.log(`Pedido ${pedidoId} foi cancelado no servidor.`);
-
-        });
+        this.carregarPedidos(); // Atualiza a lista após o cancelamento
+      });
     }
   }
 
   pagarPedido(pedidoId: string): void {
-    const pedidoEncontrado = this.pedidos.find(
-      (pedido) => pedido.id === pedidoId 
-    );
+    const pedidoEncontrado = this.pedidos.find((pedido) => pedido.id === pedidoId);
 
-    if (pedidoEncontrado && pedidoEncontrado.pedidoEstado == 'AGUARDANDO PAGAMENTO') {
+    if (pedidoEncontrado && pedidoEncontrado.pedidoEstado === 'AGUARDANDO PAGAMENTO') {
       pedidoEncontrado.pedidoEstado = 'PAGO';
 
       this.http.put(`http://localhost:3333/pedidos/${pedidoId}`, pedidoEncontrado).subscribe(() => {
+        console.log(`Pedido ${pedidoId} foi pago no servidor.`);
+        this.carregarPedidos(); // Atualiza a lista após o pagamento
       });
 
       alert(`Pedido ${pedidoId} pago com sucesso!`);
+    } else if (pedidoEncontrado.pedidoEstado === 'PAGO') {
+      alert(`O pedido já foi pago!`);
+    } else {
+      alert(`Aguarde a conclusão do pedido!`);
     }
-    else if(pedidoEncontrado.pedidoEstado == 'PAGO'){
-      alert(`O pedido ja foi pago!`); 
-    }
-    else{
-      alert(`Aguarde a conclusão do pedido!`); 
-    }
-    
   }
 }
