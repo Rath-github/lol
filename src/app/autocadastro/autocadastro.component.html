@@ -7,19 +7,22 @@
       </div>
       <form
         #autocadastroForm="ngForm"
-        (ngSubmit)="onSubmit(autocadastroForm.value)"
-      >
+        (ngSubmit)="onSubmit(autocadastroForm.value)">
         <div class="mb-3">
           <label for="cpf" class="form-label">CPF:</label>
           <input
-            type="text"
-            id="cpf"
-            name="cpf"
-            class="form-control"
-            required
-            ngModel
+          type="text"
+          id="cpf"
+          name="cpf"
+          class="form-control"
+          maxlength="14"
+          required
+          [(ngModel)]="cpf"
+          (input)="formatarCPF($event)"
           />
         </div>
+        
+        <!-- Nome -->
         <div class="mb-3">
           <label for="nome" class="form-label">Nome:</label>
           <input
@@ -27,10 +30,13 @@
             id="nome"
             name="nome"
             class="form-control"
+            maxlength="35"
             required
             ngModel
           />
         </div>
+        
+        <!-- E-mail -->
         <div class="mb-3">
           <label for="email" class="form-label">E-mail:</label>
           <input
@@ -38,10 +44,28 @@
             id="email"
             name="email"
             class="form-control"
+            maxlength="35"
             required
             ngModel
           />
         </div>
+        
+        <!-- CEP -->
+        <div class="mb-3">
+          <label for="cep" class="form-label">CEP:</label>
+          <input
+            type="text"
+            id="cep"
+            name="cep"
+            class="form-control"
+            (input)="formatarCEP($event)"
+            maxlength="10"
+            [(ngModel)]="cep"
+            (ngModelChange)="buscaCep()"
+          />
+        </div>
+        
+        <!-- Endereço -->
         <div class="mb-3">
           <label for="endereco" class="form-label">Endereço:</label>
           <input
@@ -49,19 +73,25 @@
             id="endereco"
             name="endereco"
             class="form-control"
+            maxlength="60"
             required
-            ngModel
+            [(ngModel)]="endereco"
           />
         </div>
+        
+        <!-- Telefone -->
         <div class="mb-3">
           <label for="telefone" class="form-label">Telefone:</label>
           <input
-            type="text"
-            id="telefone"
-            name="telefone"
-            class="form-control"
-            required
-            ngModel
+          type="text"
+          id="telefone"
+          name="telefone"
+          class="form-control"
+          maxlength="15"
+          required
+          [(ngModel)]="telefone"
+          (input)="formatarTelefone($event)"
+      
           />
         </div>
         <div class="mb-3 text-center">
@@ -69,6 +99,20 @@
           <a href="/login" class="btn btn-link">Voltar para o Login</a>
         </div>
       </form>
+      
+        <div class="alert alert-success alert-dismissible fade show col-md-6 col-lg-12  d-flex justify-content-center align-items-center " role="alert" *ngIf="sucesso">
+            <p>Usuario Cadastrado!</p>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="sucesso = false" ></button>
+        </div>
+    
+   
+      <div class="alert alert-danger col-md-6 col-lg-12  d-flex justify-content-center align-items-center " role="alert" *ngIf="erro">
+          <p>Erro ao Cadastrar!</p>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="erro = false" ></button>
+      </div>
+  
+    
     </div>
+  
   </div>
 </div>
