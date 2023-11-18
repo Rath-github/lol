@@ -14,7 +14,6 @@
               <td>Nome</td>
               <td>Email</td>
               <td>Data de Nascimento</td>
-              <td>Cargo</td>
               <td><button (click)="campoNovo=true; campoEditar=false" class="btn btn-success col-md-9 m-1">Novo</button></td>
           </tr>
           <tr *ngFor="let funcionario of funcionarios; let i = index">
@@ -22,12 +21,12 @@
               <td>{{funcionario.nome}}</td>
               <td>{{funcionario.email}}</td>
               <td>{{funcionario.dtNascimento}}</td>
-              <td>{{funcionario.cargo}}</td>
+              
               
   
               <button (click)="selecionarEditar(funcionario.id)" class="btn btn-primary m-1">Editar</button>
   
-              <button (click)="removerFuncionario(i)" class="btn btn-danger">Remover</button>
+              <button (click)="removerFuncionario(funcionario.id)" class="btn btn-danger">Remover</button>
   
           </tr>
       </table>
@@ -56,11 +55,6 @@
             <div>
               <label for="dtNascimento" class="col-sm-4 col-form-label">Data de Nascimento:</label>
               <input type="text" id="dtNascimento" name="dtNascimento" placeholder="Digite a sua data de nascimento" required [(ngModel)]="novoFuncionario.dtNascimento">
-            </div>
-  
-            <div>
-              <label for="cargo" class="col-sm-4 col-form-label">Cargo:</label>
-              <input type="text" id="cargo" name="cargo" placeholder="Digite o cargo exercido" required [(ngModel)]="novoFuncionario.cargo">
             </div>
   
             <div>
@@ -97,11 +91,6 @@
               <div>
                 <label for="dtNascimento" class="col-sm-4 col-form-label">Data de Nascimento:</label>
                 <input type="text" id="dtNascimento" name="dtNascimento" placeholder="Digite a sua data de nascimento" required [(ngModel)]="novoFuncionario.dtNascimento">
-              </div>
-    
-              <div>
-                <label for="cargo" class="col-sm-4 col-form-label">Cargo:</label>
-                <input type="text" id="cargo" name="cargo" placeholder="Digite o cargo exercido" required [(ngModel)]="novoFuncionario.cargo">
               </div>
     
               <div>

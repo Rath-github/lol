@@ -26,7 +26,7 @@ export class RelatorioClientesFieisComponent implements OnInit {
         if (data && Array.isArray(data)) {
           this.pedidos = data;
           console.log('Pedidos:', this.pedidos);
-          this.gerarRelatorio(); // Chamando a geração do relatório após receber os dados
+         
         } else {
           console.error('Dados inválidos de pedidos:', data);
         }

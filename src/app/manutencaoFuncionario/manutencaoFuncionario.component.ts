@@ -8,7 +8,6 @@ interface Funcionario {
   email: string;
   dtNascimento: string;
   senha: string;
-  cargo: string;
   tipo: string;
 }
 
@@ -29,7 +28,6 @@ export class ManutencaoFuncionarioComponent implements OnInit {
     email: '',
     dtNascimento: '',
     senha: '',
-    cargo: '',
     tipo: '',
   };
 
@@ -55,7 +53,6 @@ export class ManutencaoFuncionarioComponent implements OnInit {
         email: '',
         dtNascimento: '',
         senha: '',
-        cargo: '',
         tipo: '',
       };
       this.campoNovo = false;
@@ -77,7 +74,6 @@ export class ManutencaoFuncionarioComponent implements OnInit {
         email: '',
         dtNascimento: '',
         senha: '',
-        cargo: '',
         tipo: '',
       };
       this.campoEditar = true;
