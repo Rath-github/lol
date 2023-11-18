@@ -87,4 +87,13 @@ export class ManutencaoFuncionarioComponent implements OnInit {
       this.campoEditar = false;
     });
   }
+  formatarData(dataString: string): string {
+    if (dataString && dataString.length === 8) {
+      const dia = dataString.substr(0, 2);
+      const mes = dataString.substr(2, 2);
+      const ano = dataString.substr(4, 4);
+      return `${dia}/${mes}/${ano}`;
+    } else {
+      return 'Data inválida';
+    }}
 }
