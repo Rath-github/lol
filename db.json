@@ -179,8 +179,9 @@
       "pedidoDia": 15,
       "pedidoMes": 11,
       "pedidoAno": 2023,
-      "pedidoEstado": "EM ABERTO",
-      "id": "YGOto25"
+      "pedidoEstado": "RECOLHIDO",
+      "id": "YGOto25",
+      "pedidoRecolhido": true
     },
     {
       "pedidoNum": 9,
@@ -247,7 +248,11 @@
     },
     {
       "id": 2,
-      "nome": "José"
+      "nome": "José",
+      "email": "jose@gmail.com",
+      "endereco": "Rua A, 123",
+      "telefone": "(11) 1234-5678",
+      "senha": "1234"
     },
     {
       "id": 3,
@@ -274,69 +279,6 @@
       "telefone": "",
       "senha": "9658",
       "id": 6
-    },
-    {
-      "cpf": "",
-      "nome": "",
-      "email": "",
-      "endereco": "",
-      "telefone": "",
-      "senha": "7521",
-      "id": 7
-    },
-    {
-      "cpf": "",
-      "nome": "",
-      "email": "",
-      "endereco": "",
-      "telefone": "",
-      "senha": "3285",
-      "id": 8
-    },
-    {
-      "cpf": "",
-      "nome": "",
-      "email": "",
-      "endereco": "",
-      "telefone": "",
-      "senha": "6719",
-      "id": 9
-    },
-    {
-      "cpf": "",
-      "nome": "",
-      "email": "",
-      "endereco": "",
-      "telefone": "",
-      "senha": "6023",
-      "id": 10
-    },
-    {
-      "cpf": "",
-      "nome": "",
-      "email": "",
-      "endereco": "",
-      "telefone": "",
-      "senha": "2537",
-      "id": 11
-    },
-    {
-      "cpf": "",
-      "nome": "",
-      "email": "",
-      "endereco": "",
-      "telefone": "",
-      "senha": "3788",
-      "id": 12
-    },
-    {
-      "cpf": "",
-      "nome": "",
-      "email": "",
-      "endereco": "",
-      "telefone": "",
-      "senha": "9074",
-      "id": 13
     },
     {
       "cpf": "1234567489",
