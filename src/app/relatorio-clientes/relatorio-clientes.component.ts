@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { jsPDF } from 'jspdf';
 
 
@@ -18,42 +19,49 @@ interface Cliente {
 })
 
 export class RelatorioClientesComponent  implements OnInit {
-  clientes: Cliente[] = [
-    {
-      id: 1,
-      nome: 'João Silva',
-      email: 'joao@example.com',
-      telefone: '123456789',
-      endereco: 'Rua A, 123',
-    },
-    {
-      id: 2,
-      nome: 'Maria Santos',
-      email: 'maria@example.com',
-      telefone: '987654321',
-      endereco: 'Rua B, 456',
-    },
-    // ... mais dados fictícios
-  ];
+  clientes: any[] = [];
+  logo : string = '/assets/img/logo.png'
 
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.http.get<any[]>('http://localhost:3333/Clientes').subscribe((cliente) => {
+          this.clientes = [...cliente];});
+  }
 
   gerarRelatorio(): void {
     const doc = new jsPDF();
-    doc.text('Relatório de Clientes', 10, 10);
 
-    let y = 30; // Posição vertical para começar a adicionar os dados
+    doc.addImage(this.logo, 'PNG', 10, 0, 50, 50);
 
+    doc.setFont('Georgia');
+    doc.setFontSize(26);
+    doc.text('Relatório de Clientes', 80, 25);
+
+    const dataAtual = new Date();
+    const dataFormatada = dataAtual.toLocaleDateString('pt-BR', { year: 'numeric', month: 'long', day: 'numeric' });
+
+    doc.setFontSize(12);
+    doc.text(`Data: ${dataFormatada}`, 93, 31);
+
+
+    let y = 70; // Posição vertical para começar a adicionar os dados
+
+    doc.setFontSize(13);
     for (const cliente of this.clientes) {
+      if (y > 250) {
+        doc.addPage(); // Adiciona uma nova página se a altura exceder 250
+        y = 20; // Reinicia a posição vertical
+      }
+      
       doc.text(`ID: ${cliente.id}`, 10, y);
-      doc.text(`Nome: ${cliente.nome}`, 40, y);
-      doc.text(`E-mail: ${cliente.email}`, 90, y);
-      doc.text(`Telefone: ${cliente.telefone}`, 140, y);
-      doc.text(`Endereço: ${cliente.endereco}`, 180, y);
+      doc.text(`Nome: ${cliente.nome}`, 30, y);
+      doc.text(`CPF: ${cliente.cpf}`, 140, y);
+      doc.text(`E-mail: ${cliente.email}`, 30, y + 6);
+      doc.text(`Telefone: ${cliente.telefone}`, 140, y + 6);
+      doc.text(`Endereço: ${cliente.endereco}`, 30, y + 12);
 
-      y += 15; // Aumenta a posição vertical para a próxima linha
+      y += 25; // Aumenta a posição vertical para a próxima linha
     }
 
     doc.save('relatorio_clientes.pdf');
