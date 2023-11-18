@@ -3,8 +3,10 @@
 </div>
 
 <div class="container">
+  <div class="row">
+  <div class="col-md-7">
   
-  <div class="form-group">
+  <div class="form-group ">
     <label for="estadoFiltro">Filtrar por estado:</label>
     <select class="form-control" id="estadoFiltro" [(ngModel)]="estadoFiltro">
       <option value="">Todos</option>
@@ -18,8 +20,8 @@
       <option value="FINALIZADO">Finalizado</option>
     </select>
   </div>
-  <table class="table">
-    <thead>
+  <table class="table" >
+    <thead> 
       <tr>
         <th>Número</th>
         <th>Estado</th>
@@ -33,11 +35,69 @@
         <td>{{ pedido.pedidoEstado }}</td>
         <td>{{ pedido.pedidoDia}}/{{pedido.pedidoMes}}/{{pedido.pedidoAno}}</td>
         <td>
-          <button class="btn btn-primary" (click)="pagarPedido(pedido.id)" *ngIf="tipoUsuario==='cliente'">Pagar</button>
-          <button class="btn btn-danger" (click)="cancelarPedido(pedido.id)">Cancelar</button>
+          <button class="btn btn-success" (click)="mostrarJanelaPagar(pedido.id)" *ngIf="tipoUsuario==='cliente' && pedido.pedidoEstado === 'AGUARDANDO PAGAMENTO'">Pagar</button>
+          <button class="btn btn-secondary " (click)="mostrarJanelaPagar(pedido.id)" *ngIf="pedido.pedidoEstado != 'AGUARDANDO PAGAMENTO'">Status</button>
+          <button class="btn btn-danger" (click)="cancelarPedido(pedido.id)" *ngIf="pedido.pedidoEstado != 'CANCELADO'">Cancelar</button>
+         
           <a [routerLink]="['/confirmar-pagamento', pedido.pedidoNum]" class="btn btn-info" *ngIf="tipoUsuario==='funcionario'">Confirmar Pagamento</a>
         </td>
       </tr>
     </tbody>
   </table>
+  </div>
+  
+  <div class="col-md-4 m-3">
+    <div class="border" *ngIf="janelaPagar">
+        <h2 class="d-flex justify-content-center align-items-center display-6" style="color: #157347;">Confirmar Pagamento</h2>
+      
+            <div>
+              <table class="table table-striped">
+                
+                  <tr>
+                    <td>Numero do pedido : {{ pedidoEncontrado.pedidoNum}}</td>
+                  </tr>
+                  <tr>
+                    <td>Data do pedido: {{ pedidoEncontrado.pedidoDia}}/{{pedidoEncontrado.pedidoMes}}/{{pedidoEncontrado.pedidoAno}}</td>
+                  </tr>                
+               
+                  <tr>
+                    <td>Valor: {{ pedidoEncontrado.pedidoOrcamento}},00 R$</td>
+                  </tr>
+                  <tr>Roupas:</tr>
+              
+                <tbody>
+                 <tr *ngFor="let roupa of pedidoEncontrado.pedidoRoupas">
+               
+                  <td >{{roupa.tipo}} </td>
+                  <td >{{roupa.quantidade}} Peças</td>
+                  <td >{{roupa.preco}},00 R$</td>
+
+                 </tr>
+
+                </tbody>
+                
+              </table>
+            </div>
+            
+            <p class="d-flex justify-content-center align-items-center ">{{textAlert}}</p>
+            
+            <div class="d-flex justify-content-center align-items-center ">
+               
+                <button class="btn btn-success m-2" *ngIf="!btPago" (click)="pagarPedido(pedidoEncontrado.id)">Pagar</button>
+                <button class="btn btn-success" *ngIf="btPago" (click)="janelaPagar = false">Concluir</button>
+                <button class="btn btn-danger" *ngIf="!btPago" (click)="janelaPagar = false">Cancelar</button>
+            </div>     
+    </div>
+    
+      <div class="border" *ngIf="janelaAlert">
+          <h2 class="d-flex justify-content-center align-items-center display-6" style="color: #157347;">Pagar Pedido</h2>              
+             
+                <div class="d-flex justify-content-center align-items-center ">
+                  <p>{{textAlert}}</p>
+                </div>   
+                <div class="d-flex justify-content-center align-items-center ">
+                  <button class="btn btn-danger" (click)="janelaAlert = false" >Sair</button>
+                </div>
+    
+      </div>
 </div>
