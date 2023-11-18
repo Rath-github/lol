@@ -22,11 +22,13 @@ export class FuncionarioComponent implements OnInit {
     this.carregarPedidos();
     
   }
-
+  
   carregarPedidos(): void {
     this.http.get<any[]>('http://localhost:3333/pedidos').subscribe((pedidos) => {
-      this.pedidosOriginais = pedidos;
-      this.filtrarPedidos();
+      // Filtra os pedidos em aberto que não foram recolhidos pelo motoboy
+      this.pedidosAbertosNaoRecolhidos = pedidos.filter(
+        (pedido) => pedido.pedidoEstado === 'EM ABERTO' && !pedido.pedidoRecolhido
+      );
     });
   }
 
