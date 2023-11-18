@@ -42,4 +42,17 @@ export class ClienteComponent implements OnInit {
   alternarValor() {
     this.valores = !this.valores;
   }
+
+  cancelarPedido(pedidoId: string): void {
+    const pedidoEncontrado = this.pedidos.find((pedido) => pedido.id === pedidoId);
+
+    if (pedidoEncontrado && pedidoEncontrado.pedidoEstado !== 'RECOLHIDO') {
+      pedidoEncontrado.pedidoEstado = 'CANCELADO';
+
+      this.http.put(`http://localhost:3333/pedidos/${pedidoId}`, pedidoEncontrado).subscribe(() => {
+        console.log(`Pedido ${pedidoId} foi cancelado no servidor.`);
+        this.carregarPedidosEmAberto(); // Atualiza a lista após o cancelamento
+      });
+    }
+  }
 }

@@ -37,7 +37,7 @@
         <td>
           <button class="btn btn-success" (click)="mostrarJanelaPagar(pedido.id)" *ngIf="tipoUsuario==='cliente' && pedido.pedidoEstado === 'AGUARDANDO PAGAMENTO'">Pagar</button>
           <button class="btn btn-secondary " (click)="mostrarJanelaPagar(pedido.id)" *ngIf="pedido.pedidoEstado != 'AGUARDANDO PAGAMENTO'">Status</button>
-          <button class="btn btn-danger" (click)="cancelarPedido(pedido.id)" *ngIf="pedido.pedidoEstado != 'CANCELADO'">Cancelar</button>
+          <button class="btn btn-danger" (click)="cancelarPedido(pedido.id)" *ngIf="pedido.pedidoEstado != 'CANCELADO' && pedido.pedidoEstado != 'PAGO'">Cancelar</button>
          
           <a [routerLink]="['/confirmar-pagamento', pedido.pedidoNum]" class="btn btn-info" *ngIf="tipoUsuario==='funcionario'">Confirmar Pagamento</a>
         </td>

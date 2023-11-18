@@ -23,6 +23,7 @@
             <td>{{ pedido.pedidoDia}}/{{pedido.pedidoMes}}/{{pedido.pedidoAno}}</td>
             <td>{{ pedido.pedidoPrazo}} dias</td>
             <td>{{ pedido.pedidoEstado }}</td>
+            <td> <button class="btn btn-danger" (click)="cancelarPedido(pedido.id)" >Cancelar</button></td>
           </tr>
         </tbody>
       </table>
