@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { EstadosService } from './services';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { NgxMaskModule } from 'ngx-mask';
+
 
 import { AppComponent } from './app.component';
 
@@ -71,7 +71,7 @@ import { RelatorioClientesComponent } from './relatorio-clientes/relatorio-clien
     FormsModule,
     NgbModule,
     HttpClientModule,
-    NgxMaskModule.forRoot(),
+
     
   ],
 

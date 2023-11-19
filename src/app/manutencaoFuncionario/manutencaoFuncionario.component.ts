@@ -44,7 +44,7 @@ export class ManutencaoFuncionarioComponent implements OnInit {
   }
 
   adicionarFuncionario(): void {
-    this.http.post('http://localhost:3333/funcionarios', this.novoFuncionario).subscribe(() => {
+    this.http.post('http://localhost:3333/Funcionarios', this.novoFuncionario).subscribe(() => {
       this.carregarFuncionarios();
       this.novoFuncionario = {
         id: 0,
@@ -87,13 +87,4 @@ export class ManutencaoFuncionarioComponent implements OnInit {
       this.campoEditar = false;
     });
   }
-  formatarData(dataString: string): string {
-    if (dataString && dataString.length === 8) {
-      const dia = dataString.substr(0, 2);
-      const mes = dataString.substr(2, 2);
-      const ano = dataString.substr(4, 4);
-      return `${dia}/${mes}/${ano}`;
-    } else {
-      return 'Data inválida';
-    }}
 }

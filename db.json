@@ -306,7 +306,9 @@
       "email": "maria@gmail.com",
       "endereco": " Rua C, 789",
       "telefone": "10121116",
-      "senha": "1234"
+      "senha": "1234",
+      "dtNascimento": "15/2/2000",
+      "cpf": 1234567489
     },
     {
       "id": 4,

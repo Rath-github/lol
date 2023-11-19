@@ -22,7 +22,7 @@ export class AutocadastroComponent {
 
   onSubmit(form: any): void {
     // Realizar a geração da senha aleatória de 4 dígitos
-    const senhaAleatoria = Math.floor(1000 + Math.random() * 9000).toString();
+    //const senhaAleatoria = Math.floor(1000 + Math.random() * 9000).toString();
 
     // Coletar os dados do usuário
     const userData = {
@@ -31,12 +31,12 @@ export class AutocadastroComponent {
       email: form.email,
       endereco: this.endereco,
       telefone: form.telefone,
-      senha: senhaAleatoria, // Adiciona a senha aleatória aos dados do usuário
+      //senha: senhaAleatoria, // Adiciona a senha aleatória aos dados do usuário
     };
 
     if(userData.cpf && userData.nome && userData.email && userData.endereco && userData.telefone){
     // Enviar os dados para o servidor via HTTP POST
-    this.http.post('http://localhost:3333/Clientes', userData).subscribe(
+    this.http.post('http://localhost:8080/api/clientes/criar', userData).subscribe(
       (response) => {
         // O usuário foi cadastrado com sucesso, e você pode lidar com a resposta aqui.
         console.log('Sucesso ao cadastrar usuário:', response);
